@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>なゆた × あやねえ コラボ企画書 2026</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Yu Gothic', sans-serif;
+    background: #f5f4f0;
+    color: #1a1a1a;
+    font-size: 15px;
+    line-height: 1.75;
+  }
+
+  /* スライド単位 */
+  .slide {
+    width: 100%;
+    max-width: 900px;
+    margin: 0 auto 32px;
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.08);
+    page-break-after: always;
+  }
+
+  /* スライドヘッダー */
+  .slide-header {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 28px 40px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+  .slide-num {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.4);
+    flex-shrink: 0;
+  }
+  .slide-title {
+    font-size: 20px;
+    font-weight: 700;
+  }
+
+  /* スライド本文 */
+  .slide-body {
+    padding: 36px 40px;
+  }
+
+  /* ===== 表紙 ===== */
+  .cover {
+    background: linear-gradient(135deg, #1a1a2e 0%, #2d2d52 100%);
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 60px 40px;
+    border-radius: 16px;
+    color: #fff;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.12);
+    margin: 0 auto 32px;
+    max-width: 900px;
+  }
+  .cover-eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    color: rgba(255,255,255,0.45);
+    margin-bottom: 24px;
+    text-transform: uppercase;
+  }
+  .cover h1 {
+    font-size: clamp(26px, 5vw, 44px);
+    font-weight: 800;
+    line-height: 1.35;
+    margin-bottom: 20px;
+  }
+  .cover h1 em {
+    font-style: normal;
+    color: #f0c040;
+  }
+  .cover-sub {
+    font-size: 15px;
+    color: rgba(255,255,255,0.55);
+    margin-bottom: 36px;
+  }
+  .cover-tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .cover-tag {
+    font-size: 12px;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 20px;
+    padding: 5px 16px;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* ===== 見出し類 ===== */
+  .label {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #888;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .label-accent { color: #4a6cf7; }
+
+  h2.slide-section-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+  }
+  h3.sub {
+    font-size: 16px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 12px;
+    margin-top: 24px;
+  }
+
+  /* ===== グリッド ===== */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+
+  /* ===== カード ===== */
+  .card {
+    background: #f8f8f6;
+    border: 1px solid #e8e8e4;
+    border-radius: 12px;
+    padding: 22px;
+  }
+  .card-blue {
+    background: #eef2ff;
+    border-color: #c7d2fe;
+  }
+  .card-amber {
+    background: #fffbeb;
+    border-color: #fde68a;
+  }
+  .card-green {
+    background: #f0fdf4;
+    border-color: #bbf7d0;
+  }
+  .card-red {
+    background: #fef2f2;
+    border-color: #fecaca;
+  }
+  .card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 8px;
+  }
+  .card-text {
+    font-size: 13px;
+    color: #555;
+    line-height: 1.7;
+  }
+  .card-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-bottom: 10px;
+  }
+  .badge-hot { background: #fee2e2; color: #dc2626; }
+  .badge-main { background: #dbeafe; color: #1d4ed8; }
+  .badge-sub { background: #f3f4f6; color: #6b7280; }
+  .badge-down { background: #fef3c7; color: #d97706; }
+
+  /* ===== コアメッセージ ===== */
+  .core-msg {
+    background: #1a1a2e;
+    border-radius: 12px;
+    padding: 36px 40px;
+    text-align: center;
+    color: #fff;
+  }
+  .core-msg blockquote {
+    font-size: clamp(18px, 3vw, 28px);
+    font-weight: 800;
+    line-height: 1.5;
+    color: #f0c040;
+    margin-bottom: 16px;
+  }
+  .core-msg p {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+  }
+
+  /* ===== ビフォアフ ===== */
+  .bf-card {
+    border: 1px solid #e8e8e4;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .bf-name-bar {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 12px 20px;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .bf-body { padding: 18px 20px; }
+  .bf-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+  }
+  .bf-tag {
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .bf-tag.before { background: #f3f4f6; color: #6b7280; }
+  .bf-tag.after { background: #fef3c7; color: #d97706; }
+  .bf-row p { font-size: 13px; color: #333; line-height: 1.65; }
+  .bf-note {
+    font-size: 11px;
+    color: #999;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid #f0f0ee;
+  }
+
+  /* ===== フロー ===== */
+  .flow-wrap {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+  .flow-row {
+    display: flex;
+    align-items: stretch;
+    gap: 0;
+  }
+  .flow-connector {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40px;
+    flex-shrink: 0;
+  }
+  .flow-circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: #4a6cf7;
+    flex-shrink: 0;
+    margin-top: 6px;
+  }
+  .flow-circle.gray { background: #d1d5db; }
+  .flow-circle.gold { background: #f0c040; }
+  .flow-line-v {
+    width: 2px;
+    flex: 1;
+    background: #e5e7eb;
+    min-height: 20px;
+  }
+  .flow-box-wrap {
+    flex: 1;
+    padding-bottom: 20px;
+    padding-top: 0;
+  }
+  .flow-box {
+    background: #f8f8f6;
+    border: 1px solid #e8e8e4;
+    border-radius: 8px;
+    padding: 12px 16px;
+  }
+  .flow-box.highlight {
+    background: #eef2ff;
+    border-color: #c7d2fe;
+  }
+  .flow-box.goal {
+    background: #1a1a2e;
+    border-color: #1a1a2e;
+    color: #fff;
+  }
+  .flow-box.downsell {
+    background: #fffbeb;
+    border-color: #fde68a;
+  }
+  .flow-box strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 3px;
+  }
+  .flow-box span {
+    font-size: 12px;
+    color: #777;
+  }
+  .flow-box.goal strong { color: #f0c040; }
+  .flow-box.goal span { color: rgba(255,255,255,0.55); }
+
+  /* ===== 振り分けテーブル ===== */
+  .triage-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .triage-table th {
+    background: #1a1a2e;
+    color: #fff;
+    padding: 10px 16px;
+    text-align: left;
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+  .triage-table td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0ee;
+    vertical-align: top;
+  }
+  .triage-table tr:last-child td { border-bottom: none; }
+  .triage-table tr:nth-child(even) td { background: #fafaf8; }
+  .product-pill {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+  }
+  .pill-blue { background: #dbeafe; color: #1d4ed8; }
+  .pill-purple { background: #ede9fe; color: #6d28d9; }
+  .pill-teal { background: #ccfbf1; color: #0f766e; }
+  .pill-amber { background: #fef3c7; color: #d97706; }
+
+  /* ===== メッセージフェーズ ===== */
+  .phase-list { display: flex; flex-direction: column; gap: 10px; }
+  .phase-item {
+    display: flex;
+    gap: 14px;
+    align-items: flex-start;
+    padding: 14px;
+    background: #f8f8f6;
+    border-radius: 8px;
+    border-left: 3px solid #4a6cf7;
+  }
+  .phase-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: #4a6cf7;
+    flex-shrink: 0;
+    width: 32px;
+    text-align: center;
+  }
+  .phase-msg {
+    font-size: 14px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 3px;
+  }
+  .phase-goal { font-size: 12px; color: #888; }
+
+  /* ===== スケジュール ===== */
+  .schedule-list { display: flex; flex-direction: column; gap: 10px; }
+  .schedule-item {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+    padding: 12px 16px;
+    background: #f8f8f6;
+    border-radius: 8px;
+  }
+  .schedule-timing {
+    font-size: 12px;
+    color: #4a6cf7;
+    font-weight: 700;
+    flex-shrink: 0;
+    width: 150px;
+  }
+  .schedule-content { font-size: 13px; color: #333; }
+
+  /* ===== ページ間スペース ===== */
+  body > * { margin-bottom: 0; }
+
+  /* ===== 汎用 ===== */
+  ul.dot { list-style: none; padding: 0; }
+  ul.dot li {
+    font-size: 13px;
+    color: #444;
+    padding: 6px 0;
+    padding-left: 16px;
+    position: relative;
+    border-bottom: 1px solid #f0f0ee;
+    line-height: 1.65;
+  }
+  ul.dot li:last-child { border-bottom: none; }
+  ul.dot li::before { content: '›'; position: absolute; left: 0; color: #4a6cf7; font-weight: 700; }
+
+  .divider { height: 1px; background: #f0f0ee; margin: 24px 0; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+
+  @media (max-width: 640px) {
+    .slide-body { padding: 24px 20px; }
+    .slide-header { padding: 20px; }
+    .grid-2, .grid-3, .two-col { grid-template-columns: 1fr; }
+    .cover { padding: 48px 24px; }
+  }
+</style>
+</head>
+<body style="padding: 32px 16px;">
+
+<!-- 表紙 -->
+<div class="cover">
+  <div class="cover-eyebrow">Project Proposal 2026</div>
+  <h1>なゆた × あやねえ<br><em>コラボ再始動企画</em></h1>
+  <p class="cover-sub">「1年ぶりの再タッグ」で事業者向けに刺す。</p>
+  <div class="cover-tags">
+    <span class="cover-tag">メイン商品：コーチング / サロン ¥330,000</span>
+    <span class="cover-tag">ダウンセル：金運瞑想マスター講座 ¥49,800</span>
+    <span class="cover-tag">チャネル：あやねえ X・LINE</span>
+  </div>
+</div>
+
+<!-- SLIDE 1: コアメッセージ -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">01</span>
+    <span class="slide-title">コアメッセージ</span>
+  </div>
+  <div class="slide-body">
+    <div class="core-msg">
+      <blockquote>「結局、自分の優位性って何？<br>ほんとにやりたいこと、できてる？」</blockquote>
+      <p>スキル論・収益論ではなく、稼いでいる人が一度立ち止まって<br>自分の軸・本音・在り方を問い直すきっかけとして設計する。</p>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 2: ターゲット3層 -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">02</span>
+    <span class="slide-title">アプローチするターゲット層</span>
+  </div>
+  <div class="slide-body">
+    <div class="grid-3">
+      <div class="card">
+        <span class="card-badge badge-hot">🔥 MOST HOT</span>
+        <div class="card-title">去年のコラボ参加者</div>
+        <div class="card-text">2025年の五大資産セミナー・Xスペースに参加したが、コーチング・サロンにCVしなかった層。「1年後の続編」で自然に再接触できる。</div>
+      </div>
+      <div class="card card-blue">
+        <span class="card-badge badge-main">📈 MAIN</span>
+        <div class="card-title">稼いでいるが頭打ちの事業者</div>
+        <div class="card-text">元々稼げているが「今のやり方への不安」「次のステージへの壁」を感じている人。スキルではなくマインドが課題。</div>
+      </div>
+      <div class="card">
+        <span class="card-badge badge-sub">SUB</span>
+        <div class="card-title">秘書講座で踏み込めなかった層</div>
+        <div class="card-text">3期ローンチで接触したが購入しなかったハウスリスト。マインドブロック・自己不信が根本にある人へ、まず心を整えるアプローチを提案。</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 3: 2025年動画の再利用 -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">03</span>
+    <span class="slide-title">2025年対談動画の再利用・事業者向け訴求</span>
+  </div>
+  <div class="slide-body">
+    <div class="card card-amber" style="margin-bottom:20px;">
+      <div class="card-title">💡 活用する動画資産</div>
+      <div class="card-text">「五大資産再構築6ステップセミナー」「稼いでも病む人が続出する理由」——内容は良いが視聴数が伸びなかった。<strong>未開拓の資産として再利用する。</strong></div>
+    </div>
+    <ul class="dot">
+      <li>訴求軸を <strong>「事業者向け」</strong> にシフト。「稼げているのに頭打ち・不安」に刺さる切り口で再配信</li>
+      <li>1年前に「刺さったけど動けなかった人」へ「あれから1年でこうなった人がいる」と見せる</li>
+      <li>みおさん・さりこさんのビフォアフをセットで使う（次スライド）</li>
+    </ul>
+  </div>
+</div>
+
+<!-- SLIDE 4: 実績者ビフォアフ -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">04</span>
+    <span class="slide-title">実績者ビフォアフ（対談動画を活用）</span>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      <div class="bf-card">
+        <div class="bf-name-bar">🌟 みおさん</div>
+        <div class="bf-body">
+          <div class="bf-row">
+            <span class="bf-tag before">BEFORE</span>
+            <p>元々稼げていたが頭打ち。今のやり方への不安がある状態。</p>
+          </div>
+          <div class="bf-row">
+            <span class="bf-tag after">AFTER</span>
+            <p>ブレイクスルー → 初の高単価成約・<strong>月1000万達成</strong></p>
+          </div>
+          <div class="bf-note">訴求軸：すでに稼げている人が次のステージに行くためのマインドの壁</div>
+        </div>
+      </div>
+      <div class="bf-card">
+        <div class="bf-name-bar">🌺 さりこさん</div>
+        <div class="bf-body">
+          <div class="bf-row">
+            <span class="bf-tag before">BEFORE</span>
+            <p>未経験でオンライン秘書スタート。介護職勤務。</p>
+          </div>
+          <div class="bf-row">
+            <span class="bf-tag after">AFTER</span>
+            <p><strong>月収40万超えで脱サラ</strong> → 年商億の経営者・有名事業者の側近へ。なゆたさん・あやねえの事業にも参加。</p>
+          </div>
+          <div class="bf-note">使用素材：沖縄・茅ヶ崎ワーケーション写真 / 訴求軸：環境と心が整えば人生が変わる</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 5: 販売フロー全体 -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">05</span>
+    <span class="slide-title">販売フロー全体像</span>
+  </div>
+  <div class="slide-body">
+
+    <div class="two-col">
+
+      <!-- 左：教育→面談 -->
+      <div>
+        <p class="label label-accent" style="margin-bottom:14px;">▶ メイン導線（審査制面談）</p>
+        <div class="flow-wrap">
+          <div class="flow-row">
+            <div class="flow-connector"><div class="flow-circle"></div><div class="flow-line-v"></div></div>
+            <div class="flow-box-wrap">
+              <div class="flow-box highlight">
+                <strong>X・LINE 教育発信</strong>
+                <span>2025年動画再利用 / ビフォアフ / コアメッセージ</span>
+              </div>
+            </div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-connector"><div class="flow-circle"></div><div class="flow-line-v"></div></div>
+            <div class="flow-box-wrap">
+              <div class="flow-box">
+                <strong>審査制 無料面談 申込</strong>
+                <span>フォーム経由で審査。合う人だけ面談枠を送付</span>
+              </div>
+            </div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-connector"><div class="flow-circle"></div><div class="flow-line-v"></div></div>
+            <div class="flow-box-wrap">
+              <div class="flow-box">
+                <strong>面談でヒアリング</strong>
+                <span>状況・目標・フェーズを確認 → 最適商品を提案</span>
+              </div>
+            </div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-connector"><div class="flow-circle gold"></div></div>
+            <div class="flow-box-wrap">
+              <div class="flow-box goal">
+                <strong>コーチング or サロン（¥330,000）</strong>
+                <span>強者 → コーチング ／ 中級者 → スピナイズユートピア</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 右：ダウンセル -->
+      <div>
+        <p class="label" style="color:#d97706; margin-bottom:14px;">▶ ダウンセル導線（面談に来なかった人へ）</p>
+        <div class="flow-wrap">
+          <div class="flow-row">
+            <div class="flow-connector"><div class="flow-circle gray"></div><div class="flow-line-v"></div></div>
+            <div class="flow-box-wrap">
+              <div class="flow-box">
+                <strong>面談申込なし / 特典だけ受け取った人</strong>
+                <span>マインド未熟系・合わない層も含む</span>
+              </div>
+            </div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-connector"><div class="flow-circle gray"></div><div class="flow-line-v"></div></div>
+            <div class="flow-box-wrap">
+              <div class="flow-box">
+                <strong>「踏み込めなかった判断を肯定」配信</strong>
+                <span>自己嫌悪への寄り添い → 心を整えることを提案</span>
+              </div>
+            </div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-connector"><div class="flow-circle gray"></div><div class="flow-line-v"></div></div>
+            <div class="flow-box-wrap">
+              <div class="flow-box">
+                <strong>ウェビナー動画（90分）案内</strong>
+                <span>なゆたさん × あやねえ 金運テーマのウェビナー</span>
+              </div>
+            </div>
+          </div>
+          <div class="flow-row">
+            <div class="flow-connector"><div class="flow-circle" style="background:#d97706;"></div></div>
+            <div class="flow-box-wrap">
+              <div class="flow-box downsell">
+                <strong>金運瞑想マスター講座（¥49,800）</strong>
+                <span>3日間限定オファー</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 去年コラボ購入者は両方に流す -->
+    <div class="card card-amber" style="margin-top:24px;">
+      <div class="card-title">🔥 去年のコラボ参加者への別途アプローチ</div>
+      <div class="card-text">「ご無沙汰しています。去年の企画に興味を持っていただきありがとうございました。あれから1年が経って——」<br>
+      → 売り込みではなく<strong>1年越しの近況報告・続編のご案内</strong>として両導線に自然に乗せる。去年来なかったが今年は面談へ誘導することも狙う。</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- SLIDE 6: 商品振り分け -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">06</span>
+    <span class="slide-title">面談後の商品振り分け設計</span>
+  </div>
+  <div class="slide-body">
+    <table class="triage-table" style="margin-bottom:24px;">
+      <thead>
+        <tr>
+          <th>対象フェーズ</th>
+          <th>特徴</th>
+          <th>提案商品</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>強者</strong></td>
+          <td style="font-size:13px; color:#555;">事業者・高単価志向・次のステージを求めている</td>
+          <td><span class="product-pill pill-blue">コーチング</span></td>
+        </tr>
+        <tr>
+          <td><strong>中級者</strong></td>
+          <td style="font-size:13px; color:#555;">成長途中・仲間・環境を求めている</td>
+          <td><span class="product-pill pill-purple">スピナイズユートピア</span></td>
+        </tr>
+        <tr>
+          <td><strong>事業者以外</strong></td>
+          <td style="font-size:13px; color:#555;">スピリチュアル・瞑想に関心がある層</td>
+          <td><span class="product-pill pill-teal">天郷</span></td>
+        </tr>
+        <tr>
+          <td style="color:#aaa;"><strong>面談を通さない層</strong></td>
+          <td style="font-size:13px; color:#aaa;">コミュニティに合わない・マインド未熟・面談不参加</td>
+          <td><span class="product-pill pill-amber">金運瞑想 ¥49,800</span></td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="card" style="font-size:13px; color:#555;">
+      <strong style="display:block; margin-bottom:6px; color:#333;">面談を通さない層の具体例</strong>
+      前回の「きたばあさん系」（コミュニティに合わない・マインド未熟系）／ マインドが弱め・依存傾向が強い女性 ／ 特典だけ受け取って面談に来なかった人
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 7: ダウンセルのキーメッセージ -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">07</span>
+    <span class="slide-title">ダウンセルのキーメッセージ設計</span>
+  </div>
+  <div class="slide-body">
+    <div class="phase-list">
+      <div class="phase-item">
+        <div class="phase-num">① 肯定</div>
+        <div>
+          <div class="phase-msg">「買わなかったあなたの判断、正しいと思う」</div>
+          <div class="phase-goal">感情ゴール：安心・ほっとする</div>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-num">② 共感</div>
+        <div>
+          <div class="phase-msg">「踏み込めない自分を責めなくていい」</div>
+          <div class="phase-goal">感情ゴール：自己嫌悪の解放</div>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-num">③ 気づき</div>
+        <div>
+          <div class="phase-msg">「その迷いは、心が整う準備をしているサイン」</div>
+          <div class="phase-goal">感情ゴール：前向きな再解釈</div>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-num">④ 提案</div>
+        <div>
+          <div class="phase-msg">「スキルより先に、まず自分の心を知ろう」</div>
+          <div class="phase-goal">感情ゴール：次の一歩への意欲</div>
+        </div>
+      </div>
+      <div class="phase-item">
+        <div class="phase-num">⑤ 紹介</div>
+        <div>
+          <div class="phase-msg">「そのために私が信頼してる人がいる」</div>
+          <div class="phase-goal">感情ゴール：信頼・興味</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 8: 特典・えるさん -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">08</span>
+    <span class="slide-title">特典設計・推薦コメント</span>
+  </div>
+  <div class="slide-body">
+    <div class="grid-2">
+      <div class="card card-blue">
+        <div class="card-title">⚡ 特典：超能力開花 5days セミナー（仮）</div>
+        <div class="card-text">
+          骨太感のある特典で差別化。あおりすぎず、でも限定性はしっかり持たせる。<br><br>
+          <ul class="dot" style="margin-top:0;">
+            <li>「なゆたさんにしかできない」コンテンツで特典単体の価値を高める</li>
+            <li>ABC特典のような段階設計を検討</li>
+            <li>去年コラボ参加者には「あなたへの特別案内」として提示</li>
+          </ul>
+        </div>
+      </div>
+      <div class="card card-green">
+        <div class="card-title">🤝 えるさん（@_eru_lawliet）の推薦コメント</div>
+        <div class="card-text">
+          ローンチ界隈への訴求力が上がる。企画への共感・なゆたさんあやねえへの信頼を語ってもらう。<br><br>
+          <ul class="dot" style="margin-top:0;">
+            <li><strong>依頼方法：</strong>Discord でお願い</li>
+            <li><strong>活用場所：</strong>セールスレター・Xポスト・LP</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE 9: スケジュール -->
+<div class="slide">
+  <div class="slide-header">
+    <span class="slide-num">09</span>
+    <span class="slide-title">スケジュール（仮）</span>
+  </div>
+  <div class="slide-body">
+    <div class="schedule-list">
+      <div class="schedule-item">
+        <div class="schedule-timing">○月予定</div>
+        <div class="schedule-content">秘書力マスター講座 3期ローンチ実施</div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-timing">ローンチクローズ翌日〜</div>
+        <div class="schedule-content">教育発信スタート（X・LINE）／ 去年コラボ参加者への「ご無沙汰」配信</div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-timing">D+3〜</div>
+        <div class="schedule-content">審査制面談の申込受付開始 / ダウンセルLINEシナリオ配信開始</div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-timing">面談実施後</div>
+        <div class="schedule-content">コーチング or サロン（¥330,000）への個別クロージング</div>
+      </div>
+      <div class="schedule-item">
+        <div class="schedule-timing">並行してダウンセル</div>
+        <div class="schedule-content">ウェビナー案内 → 金運瞑想マスター講座（¥49,800）3日間限定オファー</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
