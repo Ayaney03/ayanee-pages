@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>クライアントワークの教科書｜構成マップ</title>
+<style>
+  :root {
+    --ink: #2b2b33;
+    --sub: #6b6b78;
+    --bg: #f7f6f3;
+    --card: #ffffff;
+    --line: #e8e6e0;
+    --p1: #c0563b;  /* 第1部 */
+    --p2: #d99a2b;  /* 第2部 */
+    --p3: #3e7c6f;  /* 第3部 */
+    --p4: #4a6fa5;  /* 第4部 */
+    --free: #8a7ab5;
+    --end: #9a5b7d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+    padding: 40px 16px 80px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; }
+
+  /* ヘッダー */
+  header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .label {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--sub);
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: 99px;
+    padding: 4px 16px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: clamp(24px, 5vw, 34px);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    font-size: clamp(13px, 3vw, 15px);
+    color: var(--sub);
+  }
+  .stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 13px;
+    color: var(--sub);
+  }
+  .stat b { display: block; font-size: 17px; color: var(--ink); }
+
+  /* コンセプト帯 */
+  .concept {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 14px;
+    padding: 22px 24px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: clamp(14px, 3.4vw, 17px);
+  }
+  .concept .formula {
+    font-size: clamp(17px, 4.2vw, 22px);
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 6px;
+  }
+  .concept small { display: block; color: #b9b9c4; margin-top: 8px; font-size: 12px; }
+
+  /* パートブロック */
+  .part {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .part-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 16px 22px 14px;
+    border-bottom: 1px solid var(--line);
+    border-left: 6px solid var(--accent, var(--sub));
+  }
+  .part-tag {
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+    background: var(--accent, var(--sub));
+    border-radius: 6px;
+    padding: 2px 10px;
+    white-space: nowrap;
+  }
+  .part-title { font-size: clamp(15px, 3.6vw, 18px); font-weight: bold; }
+  .part-why { font-size: 12px; color: var(--sub); padding: 10px 22px 0; }
+
+  .chapters { padding: 12px 22px 18px; }
+  .ch {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+  }
+  .ch + .ch { border-top: 1px dashed var(--line); }
+  .ch-num {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--accent) 12%, #fff);
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .ch-body { flex: 1; }
+  .ch-title { font-weight: bold; font-size: clamp(13.5px, 3.4vw, 15.5px); }
+  .ch-desc { font-size: 13px; color: var(--sub); margin-top: 2px; }
+  .ch-goal {
+    font-size: 12px;
+    margin-top: 6px;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 7%, #fff);
+    border-radius: 8px;
+    padding: 5px 10px;
+    display: inline-block;
+  }
+
+  /* 区切り矢印 */
+  .bridge {
+    text-align: center;
+    color: var(--sub);
+    font-size: 13px;
+    margin: 6px 0 24px;
+  }
+  .bridge b { color: var(--ink); }
+  .bridge::before { content: "▼"; display: block; font-size: 11px; color: #c9c6bd; margin-bottom: 2px; }
+
+  /* 特典 */
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+    padding: 16px 22px 20px;
+  }
+  .bonus {
+    background: #faf9f6;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  .bonus b { display: block; font-size: 13.5px; margin-bottom: 2px; }
+  .bonus span { color: var(--sub); font-size: 12px; }
+
+  footer {
+    text-align: center;
+    color: #a5a29a;
+    font-size: 11px;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="label">Brain 構成マップ｜2026.07.06 版</div>
+    <h1>クライアントワークの教科書</h1>
+    <p class="subtitle">スキルの前に差がつく。「また頼みたい」と言われ続ける立ち回り・伝え方・回し方の全部</p>
+    <div class="stats">
+      <div class="stat">価格<b>19,800円 → 29,800円</b></div>
+      <div class="stat">分量<b>約21,000字</b></div>
+      <div class="stat">構成<b>4部11章＋終章</b></div>
+      <div class="stat">特典<b>6つ</b></div>
+    </div>
+  </header>
+
+  <div class="concept">
+    この教科書を貫く1本の軸
+    <div class="formula">収入 ＝ スキル × クライアントワーク力</div>
+    <small>ラーメン屋の法則：味（スキル）は「頼んでみよう」の条件。味以外の全部が「頼み続けよう」の条件。</small>
+  </div>
+
+  <!-- 無料部分 -->
+  <section class="part" style="--accent: var(--free);">
+    <div class="part-head">
+      <span class="part-tag">無料部分</span>
+      <span class="part-title">販売ページ（迫さん9技術織り込み）</span>
+    </div>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">FREE</div>
+        <div class="ch-body">
+          <div class="ch-title">「スキルは上がったのに、選ばれない」への答え</div>
+          <div class="ch-desc">発注側5年×受注側6年の両視点／5人の実例／不安つぶし（人見知り・実績ゼロ・子育て中OK）／他講座との比較／価格の根拠（継続1本＝年60万円）／向いていない人の明示</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bridge">ここから有料エリア</div>
+
+  <!-- 第1部 -->
+  <section class="part" style="--accent: var(--p1);">
+    <div class="part-head">
+      <span class="part-tag">第1部</span>
+      <span class="part-title">マインドセット編：なぜスキルより先に「クライアントワーク力」なのか</span>
+    </div>
+    <p class="part-why">最初はノウハウではなく「なんで学ばないといけないか」。松尾さん第1講の冒頭がベース。</p>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">第1章</div>
+        <div class="ch-body">
+          <div class="ch-title">ラーメン屋の法則。収入＝スキル×クライアントワーク力</div>
+          <div class="ch-desc">あるある5つを番号でチェック（番号で聞くこと自体が実演）→「知らなかっただけ」→ラーメン屋の例えフル展開→掛け算の方程式→AIで味の差が縮んだ今こそ学ぶ理由</div>
+          <div class="ch-goal">ゴール：「報われない」の正体が構造で分かる</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第2章</div>
+        <div class="ch-body">
+          <div class="ch-title">発注側は何を見ているのか。切られる人の6パターン</div>
+          <div class="ch-desc">経営者が発注する3つの理由→高くても頼み続ける3条件（相場2倍のデザイナーの話）→切られる6パターン（受け身・重い謝罪・待ちの姿勢…）。切る側は理由を教えてくれない</div>
+          <div class="ch-goal">ゴール：自分の無自覚NGパターンを特定する</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第3章</div>
+        <div class="ch-body">
+          <div class="ch-title">選ばれ続ける3つのマインド</div>
+          <div class="ch-desc">①自分が商品＝プロの投資意識（Zoom無課金NG）②先回りの気配り（玄関の靴を揃える人）③相手を知ろうとする提案力（常連の好みを覚えた店主）</div>
+          <div class="ch-goal">ゴール：明日からの判断基準を3つ持つ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bridge">ここまでが「在り方」 → ここからは<b>「動き方」</b></div>
+
+  <!-- 第2部 -->
+  <section class="part" style="--accent: var(--p2);">
+    <div class="part-head">
+      <span class="part-tag">第2部</span>
+      <span class="part-title">立ち回り編：案件が生まれる場所での動き方</span>
+    </div>
+    <p class="part-why">ウラカタAIセミナー0613の案件獲得パートがベース。</p>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">第4章</div>
+        <div class="ch-body">
+          <div class="ch-title">あなたの「次の案件が来ない」思考、全部違います</div>
+          <div class="ch-desc">単発止まりの人は毎回「新規応募」からやり直している。ループを抜ける前に「準備してから」の思い込みを外す。動きながら整える</div>
+          <div class="ch-goal">ゴール：今日できる一歩を1つ選ぶ</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第5章</div>
+        <div class="ch-body">
+          <div class="ch-title">コミュニティ・オフ会の立ち回り。ここで9割が損している</div>
+          <div class="ch-desc">高単価案件はコミュニティの中から生まれる。立ち回り6ポイント（⑥は「期待値を超えて単発を継続に変える」。受付の話・スライドの話など実例つき）</div>
+          <div class="ch-goal">ゴール：次のオフ会でやるアクションを1つ決める</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第6章</div>
+        <div class="ch-body">
+          <div class="ch-title">SNSは「信用のインフラ」。見られ方を設計する</div>
+          <div class="ch-desc">フォロワー数ではなく「紹介されたとき見に来られる場所」として整える。プロフィール・固定投稿・アウトプット発信</div>
+          <div class="ch-goal">ゴール：プロフィールと固定投稿を整える</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bridge">在り方と動き方が揃った → ここからは<b>日々の実務の「技術」</b></div>
+
+  <!-- 第3部 -->
+  <section class="part" style="--accent: var(--p3);">
+    <div class="part-head">
+      <span class="part-tag">第3部</span>
+      <span class="part-title">テキストコミュニケーション編：仕事の9割はテキストで決まる</span>
+    </div>
+    <p class="part-why">松尾さん第2講がベース。NG/OK例文つき。</p>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">第7章</div>
+        <div class="ch-body">
+          <div class="ch-title">チャットがスムーズになる5つの法則</div>
+          <div class="ch-desc">コミュニケーションコストという概念→ダメ実例の解剖→結論ファースト・番号を振る・選択肢で聞く…の5法則</div>
+          <div class="ch-goal">ゴール：番号付きメッセージを1通送る</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第8章</div>
+        <div class="ch-body">
+          <div class="ch-title">場面別・そのまま使える型</div>
+          <div class="ch-desc">謝罪・断り方・リマインド・日程調整・納期遅延・単価交渉。困る場面ぜんぶのコピペOKテンプレ</div>
+          <div class="ch-goal">ゴール：型を1つ実戦投入する</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第9章</div>
+        <div class="ch-body">
+          <div class="ch-title">テキスト業務を爆速化する</div>
+          <div class="ch-desc">AIを使った下書き・添削・議事録。丁寧さとスピードを両立する仕組み</div>
+          <div class="ch-goal">ゴール：AI添削フローを1つ作る</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第4部 -->
+  <section class="part" style="--accent: var(--p4);">
+    <div class="part-head">
+      <span class="part-tag">第4部</span>
+      <span class="part-title">タスク管理編：「また頼みたい」は納期が守れてこそ</span>
+    </div>
+    <p class="part-why">松尾さん第3講がベース。3児の母・週3〜4日稼働でも破綻しない回し方。</p>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">第10章</div>
+        <div class="ch-body">
+          <div class="ch-title">見える化・仕組み化・習慣化</div>
+          <div class="ch-desc">タスク管理の3原則と基本の型。明日やることを今夜3〜5件だけ決める</div>
+          <div class="ch-goal">ゴール：今夜、明日の3〜5件を決める</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第11章</div>
+        <div class="ch-body">
+          <div class="ch-title">複数案件を破綻させない仕組み</div>
+          <div class="ch-desc">社内締め切り（本当の納期より前倒し）・クライアント別管理・キャパオーバー時の断り方</div>
+          <div class="ch-goal">ゴール：社内締め切りルールを決める</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 終章 -->
+  <section class="part" style="--accent: var(--end);">
+    <div class="part-head">
+      <span class="part-tag">終章</span>
+      <span class="part-title">ビジネスは結局、人</span>
+    </div>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">終章</div>
+        <div class="ch-body">
+          <div class="ch-desc">価値観の書き換えで締める。「まず1つだけ」の行動リスト（オフ会で声かけ／番号を振る／今夜3〜5件）→巻末チェックリスト→特典受け取りへ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特典 -->
+  <section class="part" style="--accent: #b0894a;">
+    <div class="part-head">
+      <span class="part-tag">特典×6</span>
+      <span class="part-title">読み終えたその日から使える完走のご褒美</span>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus"><b>1. あやねえBOT簡易版</b><span>クライアントワーク相談Bot（AIプロンプト）※要制作</span></div>
+      <div class="bonus"><b>2. 送信前テキスト添削スキル</b><span>5つの法則で自動チェック＋リライト案 ※要制作</span></div>
+      <div class="bonus"><b>3. 場面別コピペテンプレ集30</b><span>修正依頼・断り方・謝罪・単価交渉など</span></div>
+      <div class="bonus"><b>4. コミュニティ立ち回りチェックリスト</b><span>オフ会前に見る1枚</span></div>
+      <div class="bonus"><b>5. タスク管理スターターキット</b><span>管理表スプシ＋週次ルーティン</span></div>
+      <div class="bonus"><b>6. ウラカタタイプ診断</b><span>LINE登録特典（講座導線）</span></div>
+    </div>
+  </section>
+
+  <footer>
+    素材：ウラカタAIセミナー0613＋松尾さん研修 第1〜3講＋旧No.04下書き｜しょーてぃ式（小B・完了チェック・ペイ感メモ）＋迫さん9技術準拠
+  </footer>
+
+</div>
+</body>
+</html>

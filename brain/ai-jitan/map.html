@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI×時短・家事育児の教科書｜構成マップ</title>
+<style>
+  :root {
+    --ink: #2b2b33;
+    --sub: #6b6b78;
+    --bg: #f7f6f3;
+    --card: #ffffff;
+    --line: #e8e6e0;
+    --p1: #c0563b;  /* 第1部 */
+    --p2: #d99a2b;  /* 第2部 */
+    --p3: #3e7c6f;  /* 第3部 */
+    --free: #8a7ab5;
+    --end: #9a5b7d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+    padding: 40px 16px 80px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .label {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--sub);
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: 99px;
+    padding: 4px 16px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: clamp(24px, 5vw, 34px);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    font-size: clamp(13px, 3vw, 15px);
+    color: var(--sub);
+  }
+  .stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 13px;
+    color: var(--sub);
+  }
+  .stat b { display: block; font-size: 17px; color: var(--ink); }
+
+  .concept {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 14px;
+    padding: 22px 24px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: clamp(14px, 3.4vw, 17px);
+  }
+  .concept .formula {
+    font-size: clamp(17px, 4.2vw, 22px);
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 6px;
+  }
+  .concept small { display: block; color: #b9b9c4; margin-top: 8px; font-size: 12px; }
+
+  .part {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .part-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 16px 22px 14px;
+    border-bottom: 1px solid var(--line);
+    border-left: 6px solid var(--accent, var(--sub));
+  }
+  .part-tag {
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+    background: var(--accent, var(--sub));
+    border-radius: 6px;
+    padding: 2px 10px;
+    white-space: nowrap;
+  }
+  .part-title { font-size: clamp(15px, 3.6vw, 18px); font-weight: bold; }
+  .part-why { font-size: 12px; color: var(--sub); padding: 10px 22px 0; }
+
+  .chapters { padding: 12px 22px 18px; }
+  .ch {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+  }
+  .ch + .ch { border-top: 1px dashed var(--line); }
+  .ch-num {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--accent) 12%, #fff);
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .ch-body { flex: 1; }
+  .ch-title { font-weight: bold; font-size: clamp(13.5px, 3.4vw, 15.5px); }
+  .ch-desc { font-size: 13px; color: var(--sub); margin-top: 2px; }
+  .ch-goal {
+    font-size: 12px;
+    margin-top: 6px;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 7%, #fff);
+    border-radius: 8px;
+    padding: 5px 10px;
+    display: inline-block;
+  }
+
+  .bridge {
+    text-align: center;
+    color: var(--sub);
+    font-size: 13px;
+    margin: 6px 0 24px;
+  }
+  .bridge b { color: var(--ink); }
+  .bridge::before { content: "▼"; display: block; font-size: 11px; color: #c9c6bd; margin-bottom: 2px; }
+
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+    padding: 16px 22px 20px;
+  }
+  .bonus {
+    background: #faf9f6;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  .bonus b { display: block; font-size: 13.5px; margin-bottom: 2px; }
+  .bonus span { color: var(--sub); font-size: 12px; }
+
+  footer {
+    text-align: center;
+    color: #a5a29a;
+    font-size: 11px;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="label">Brain 構成マップ｜2026.07.07 版</div>
+    <h1>AI×時短・家事育児の教科書</h1>
+    <p class="subtitle">3児ママが「もっと眠りたい」を本気で叶えた、生活まるごとAI時短の全部</p>
+    <div class="stats">
+      <div class="stat">価格<b>980円 → 1,980円 → 2,980円</b></div>
+      <div class="stat">分量<b>約12,000字</b></div>
+      <div class="stat">構成<b>3部7章＋終章</b></div>
+      <div class="stat">特典<b>3つ</b></div>
+    </div>
+  </header>
+
+  <div class="concept">
+    この教科書を貫く1本の軸
+    <div class="formula">「時間がない」の正体は、作業じゃなく「考えごと」</div>
+    <small>脳内タブの法則：献立・プリント・持ち物・予定…開きっぱなしのタブを、AIに渡して1つずつ閉じる。</small>
+  </div>
+
+  <!-- 無料部分 -->
+  <section class="part" style="--accent: var(--free);">
+    <div class="part-head">
+      <span class="part-tag">無料部分</span>
+      <span class="part-title">販売ページ（迫さん9技術織り込み）</span>
+    </div>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">FREE</div>
+        <div class="ch-body">
+          <div class="ch-title">「自分の時間が1秒もない」への答え</div>
+          <div class="ch-desc">脳内タブの言語化（努力不足じゃない）／病んで辞めた実体験の権威性（当事者として）／実例3つ（お弁当事件・献立ゼロ化・受験サポート）／不安つぶし（AI未経験・機械オンチ・手抜き罪悪感）／比較表（AI本と家事本の間の空白）／価格の根拠（献立の思考コスト月1.5万円分）／向いていない人</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bridge">ここから有料エリア</div>
+
+  <!-- 第1部 -->
+  <section class="part" style="--accent: var(--p1);">
+    <div class="part-head">
+      <span class="part-tag">第1部</span>
+      <span class="part-title">ごはん・家事編：毎日いちばん重いタブから閉じる</span>
+    </div>
+    <p class="part-why">365日、一番疲れた時間帯に開くタブ＝献立から。最初の成功体験を今夜作る。</p>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">第1章</div>
+        <div class="ch-body">
+          <div class="ch-title">献立と買い物をAIに丸投げする</div>
+          <div class="ch-desc">冷蔵庫の中身→3案＋買い足しリスト（コピペプロンプト）→慣れたら週末に1週間分まとめ出し。平日の夕方の憂鬱そのものが消える</div>
+          <div class="ch-goal">ゴール：今夜の献立をAIに出してもらう</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第2章</div>
+        <div class="ch-body">
+          <div class="ch-title">「名もなき家事」の棚卸し</div>
+          <div class="ch-desc">見えていないタブは閉じられない→AIに50個リストアップさせて「仕組み化・家族に渡す・やめる」に仕分け。リスト化した瞬間、家族に渡せるようになる実話</div>
+          <div class="ch-goal">ゴール：3分類を1つずつ選ぶ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bridge">台所のタブが閉じた → 次は心臓に悪いタブ、<b>子ども関係の「うっかり」</b></div>
+
+  <!-- 第2部 -->
+  <section class="part" style="--accent: var(--p2);">
+    <div class="part-head">
+      <span class="part-tag">第2部</span>
+      <span class="part-title">子ども・学校編：「うっかり」を仕組みでなくす</span>
+    </div>
+    <p class="part-why">時間ではなく「忘れたら子どもが悲しむ」心の重さの問題。気合いではなく仕組みで守る。</p>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">第3章</div>
+        <div class="ch-body">
+          <div class="ch-title">プリント・持ち物のタブを閉じる（NotebookLM）</div>
+          <div class="ch-desc">お弁当忘れガチ泣き事件（原点の実話）→NotebookLMに子どもごとにプリント全投入→「明日の持ち物は？」で即答。3ステップ30分のセットアップ。家族共有で「ママあれいつ？」が自分を経由しなくなる</div>
+          <div class="ch-goal">ゴール：プリント1枚入れて質問する</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第4章</div>
+        <div class="ch-body">
+          <div class="ch-title">勉強・受験サポートにAIを使う</div>
+          <div class="ch-desc">「なんでわからないの？」の正体は説明のミスマッチ→3つの別のたとえ方プロンプト／週間スケジュール＋声かけのコツまで相談／子どもに使わせる3ルール。親は「教える人」を降りて「一緒に画面を見る人」へ</div>
+          <div class="ch-goal">ゴール：つまずき1問をAIに説明させる</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第5章</div>
+        <div class="ch-body">
+          <div class="ch-title">習い事・家族スケジュールの司令塔をつくる</div>
+          <div class="ch-desc">「歩く検索窓」を卒業する。予定の置き場所を2つに絞る（共有カレンダー＋NotebookLM）＋お知らせ画像をAIに読ませてカレンダー登録用に整形。家族を「自分で見る人」にする2週間</div>
+          <div class="ch-goal">ゴール：お知らせ1枚を通しで処理する</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bridge">家事と子どもの仕組みができた → 最後は<b>あなた自身の番</b>。一番難しい「罪悪感」のタブ</div>
+
+  <!-- 第3部 -->
+  <section class="part" style="--accent: var(--p3);">
+    <div class="part-head">
+      <span class="part-tag">第3部</span>
+      <span class="part-title">自分の時間編：浮いた時間を、自分に返す</span>
+    </div>
+    <p class="part-why">仕組みより難しいのがマインド。「ちゃんとしなきゃ」と「浮いた時間をタスクで埋める」を防ぐ。</p>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">第6章</div>
+        <div class="ch-body">
+          <div class="ch-title">完璧を手放す「仕組み化」マインド</div>
+          <div class="ch-desc">「AI献立は手抜きでは」への答え＝手放すのは愛情ではなく考えごと。病んで辞めた実体験から「ちゃんと」の危うさを言語化。浮いた時間をタスクで埋めない約束</div>
+          <div class="ch-goal">ゴール：「今日から手放す1つ」を決める</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第7章</div>
+        <div class="ch-body">
+          <div class="ch-title">浮いた時間を「自分のため」に使う</div>
+          <div class="ch-desc">使い道が未定の時間は家事と罪悪感に吸収される→回復系・楽しみ系・未来系で先に3つ決める。「生活のAI」はそのまま仕事のスキルになる（次の1冊への自然な接続）</div>
+          <div class="ch-goal">ゴール：使い道3つ＋今週実行する1つ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 終章 -->
+  <section class="part" style="--accent: var(--end);">
+    <div class="part-head">
+      <span class="part-tag">終章</span>
+      <span class="part-title">時短の先にあるのは「時間」じゃなく「余白」</span>
+    </div>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">終章</div>
+        <div class="ch-body">
+          <div class="ch-desc">価値観の書き換えで締める。「効率化は、もっとやるためじゃなく、もうやらないためにある」。「まず1つだけ」の行動リスト（今夜の献立／プリント1枚／15分早く寝る）→巻末チェックリスト→特典受け取りへ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特典 -->
+  <section class="part" style="--accent: #b0894a;">
+    <div class="part-head">
+      <span class="part-tag">特典×3</span>
+      <span class="part-title">読んだ日の夜から使えるコピペセット</span>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus"><b>1. 生活シーン別プロンプト集30</b><span>本文の全プロンプト＋応用版 ※本文から抽出＋拡張で制作</span></div>
+      <div class="bonus"><b>2. NotebookLMセットアップテンプレート</b><span>わが家の実物構成 ※要制作</span></div>
+      <div class="bonus"><b>3. 1週間献立×買い物リスト ワークシート</b><span>週末15分で平日5日分の考えごとを終わらせる ※要制作</span></div>
+    </div>
+  </section>
+
+  <footer>
+    素材：旧No.03下書き＋本編ドラフト＋お弁当事件（セミナー実話）｜しょーてぃ式（小B・完了チェック・ペイ感メモ）＋迫さん9技術準拠｜Brainシリーズの最裾野・入口の1冊
+  </footer>
+
+</div>
+</body>
+</html>

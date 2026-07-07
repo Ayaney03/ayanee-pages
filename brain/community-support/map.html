@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コミュニティ運営サポートの教科書｜構成マップ</title>
+<style>
+  :root {
+    --ink: #2b2b33;
+    --sub: #6b6b78;
+    --bg: #f7f6f3;
+    --card: #ffffff;
+    --line: #e8e6e0;
+    --p1: #c0563b;  /* 第1部 */
+    --p2: #d99a2b;  /* 第2部 */
+    --p3: #3e7c6f;  /* 第3部 */
+    --p4: #4a6fa5;  /* 第4部 */
+    --free: #8a7ab5;
+    --end: #9a5b7d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", sans-serif;
+    background: var(--bg);
+    color: var(--ink);
+    line-height: 1.75;
+    padding: 40px 16px 80px;
+  }
+  .wrap { max-width: 860px; margin: 0 auto; }
+
+  header {
+    text-align: center;
+    margin-bottom: 36px;
+  }
+  .label {
+    display: inline-block;
+    font-size: 12px;
+    letter-spacing: 2px;
+    color: var(--sub);
+    border: 1px solid var(--line);
+    background: var(--card);
+    border-radius: 99px;
+    padding: 4px 16px;
+    margin-bottom: 14px;
+  }
+  h1 {
+    font-size: clamp(24px, 5vw, 34px);
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+  }
+  .subtitle {
+    font-size: clamp(13px, 3vw, 15px);
+    color: var(--sub);
+  }
+  .stats {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  .stat {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 10px 18px;
+    font-size: 13px;
+    color: var(--sub);
+  }
+  .stat b { display: block; font-size: 17px; color: var(--ink); }
+
+  .concept {
+    background: var(--ink);
+    color: #fff;
+    border-radius: 14px;
+    padding: 22px 24px;
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: clamp(14px, 3.4vw, 17px);
+  }
+  .concept .formula {
+    font-size: clamp(17px, 4.2vw, 22px);
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-top: 6px;
+  }
+  .concept small { display: block; color: #b9b9c4; margin-top: 8px; font-size: 12px; }
+
+  .part {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .part-head {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 16px 22px 14px;
+    border-bottom: 1px solid var(--line);
+    border-left: 6px solid var(--accent, var(--sub));
+  }
+  .part-tag {
+    font-size: 11px;
+    font-weight: bold;
+    color: #fff;
+    background: var(--accent, var(--sub));
+    border-radius: 6px;
+    padding: 2px 10px;
+    white-space: nowrap;
+  }
+  .part-title { font-size: clamp(15px, 3.6vw, 18px); font-weight: bold; }
+  .part-why { font-size: 12px; color: var(--sub); padding: 10px 22px 0; }
+
+  .chapters { padding: 12px 22px 18px; }
+  .ch {
+    display: flex;
+    gap: 14px;
+    padding: 12px 0;
+  }
+  .ch + .ch { border-top: 1px dashed var(--line); }
+  .ch-num {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: color-mix(in srgb, var(--accent) 12%, #fff);
+    color: var(--accent);
+    font-weight: bold;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    line-height: 1.2;
+  }
+  .ch-body { flex: 1; }
+  .ch-title { font-weight: bold; font-size: clamp(13.5px, 3.4vw, 15.5px); }
+  .ch-desc { font-size: 13px; color: var(--sub); margin-top: 2px; }
+  .ch-goal {
+    font-size: 12px;
+    margin-top: 6px;
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 7%, #fff);
+    border-radius: 8px;
+    padding: 5px 10px;
+    display: inline-block;
+  }
+
+  .bridge {
+    text-align: center;
+    color: var(--sub);
+    font-size: 13px;
+    margin: 6px 0 24px;
+  }
+  .bridge b { color: var(--ink); }
+  .bridge::before { content: "▼"; display: block; font-size: 11px; color: #c9c6bd; margin-bottom: 2px; }
+
+  .bonus-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 10px;
+    padding: 16px 22px 20px;
+  }
+  .bonus {
+    background: #faf9f6;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 13px;
+  }
+  .bonus b { display: block; font-size: 13.5px; margin-bottom: 2px; }
+  .bonus span { color: var(--sub); font-size: 12px; }
+
+  footer {
+    text-align: center;
+    color: #a5a29a;
+    font-size: 11px;
+    margin-top: 40px;
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header>
+    <div class="label">Brain 構成マップ｜2026.07.07 版</div>
+    <h1>コミュニティ運営サポートの教科書</h1>
+    <p class="subtitle">「あなたが欠かせない」と言われる人になる。業務マップ・報酬設計・仕組み化の全部</p>
+    <div class="stats">
+      <div class="stat">価格<b>2,980円 → 4,980円 → 9,800円</b></div>
+      <div class="stat">分量<b>約13,000字</b></div>
+      <div class="stat">構成<b>4部9章＋終章</b></div>
+      <div class="stat">特典<b>5つ</b></div>
+    </div>
+  </header>
+
+  <div class="concept">
+    この教科書を貫く1本の軸
+    <div class="formula">報酬 ＝ 作業量 ではなく、報酬 ＝ 手放せなさ</div>
+    <small>お祭りの法則：当日だけの売り子（作業の人）は替えが効く。実行委員の右腕（仕組みの人）は手放せない。</small>
+  </div>
+
+  <!-- 無料部分 -->
+  <section class="part" style="--accent: var(--free);">
+    <div class="part-head">
+      <span class="part-tag">無料部分</span>
+      <span class="part-title">販売ページ（迫さん9技術織り込み）</span>
+    </div>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">FREE</div>
+        <div class="ch-body">
+          <div class="ch-title">「頑張るほど損をする」働き方への答え</div>
+          <div class="ch-desc">報酬＝手放せなさの構造／アシスタント×オーナーの2軸宣言／両側を現役でやっている権威性／実例3つ（月5万→複数固定契約・時給1,300円→月10万・レポート丸2日→10分）／不安つぶし／比較表（特化教材は他にない）／価格の根拠／向いていない人の明示</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bridge">ここから有料エリア</div>
+
+  <!-- 第1部 -->
+  <section class="part" style="--accent: var(--p1);">
+    <div class="part-head">
+      <span class="part-tag">第1部</span>
+      <span class="part-title">全体像編：報酬の構造と、仕事の全体図</span>
+    </div>
+    <p class="part-why">ノウハウの前に「報酬が何で決まるか」の構造から。お祭りメタファーを全編の縦串に。</p>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">第1章</div>
+        <div class="ch-body">
+          <div class="ch-title">「消耗品」と「事業パートナー」を分けるもの</div>
+          <div class="ch-desc">あるある5つの番号チェック→お祭りの法則（売り子と実行委員の右腕）→報酬＝手放せなさ。時給制は「頑張るほど損をする」構造の言語化</div>
+          <div class="ch-goal">ゴール：自分がどちら側にいるか自覚する</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第2章</div>
+        <div class="ch-body">
+          <div class="ch-title">コミュニティ運営の全業務マップ</div>
+          <div class="ch-desc">6領域（会員管理・収支・サポート・広報・イベント・分析）を「作業寄り→提案寄り」のグラデーションで見渡す。逆引きで使う。受講生の月10万円もこのマップの上を「隣のマスに1つずつ」移動した結果</div>
+          <div class="ch-goal">ゴール：現在地と「次のマス」を特定する</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bridge">全体図が手に入った → ここからは<b>「稼ぐ側」の各論</b></div>
+
+  <!-- 第2部 -->
+  <section class="part" style="--accent: var(--p2);">
+    <div class="part-head">
+      <span class="part-tag">第2部</span>
+      <span class="part-title">アシスタント編：月10万円に届く関わり方</span>
+    </div>
+    <p class="part-why">疲弊の正体→報酬の形→提案への翻訳、の3段ロケット。</p>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">第3章</div>
+        <div class="ch-body">
+          <div class="ch-title">疲弊しない担当領域の決め方</div>
+          <div class="ch-desc">疲弊の正体は業務量ではなく「曖昧さ」。業務分担マップでクライアントと線を引く。「今は誰もやらない」業務が提案のネタ帳になる</div>
+          <div class="ch-goal">ゴール：線を引くタイミングを1つ決める</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第4章</div>
+        <div class="ch-body">
+          <div class="ch-title">時給の限界を超える報酬設計</div>
+          <div class="ch-desc">時給制は「速くなるほど収入が減る」欠陥構造。時給→月額固定→＋プロジェクト単価の3ステップと、相手の事業メリットが先に来る切り出し方の型</div>
+          <div class="ch-goal">ゴール：報酬の「次の一段」を決める</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第5章</div>
+        <div class="ch-body">
+          <div class="ch-title">「見えない価値」を提案に変える</div>
+          <div class="ch-desc">現場のウラカタはコンサルが何十万円で調べる情報をタダで見ている。「事実→仮説→提案」の3行翻訳。通った数より「提案が出てくる人」という認識が手放せなさの正体</div>
+          <div class="ch-goal">ゴール：提案の下書きを1本作る</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="bridge">ここまでが「稼ぐ側」 → ここからは<b>「頼む側」の頭の中</b>（アシスタントも必読）</div>
+
+  <!-- 第3部 -->
+  <section class="part" style="--accent: var(--p3);">
+    <div class="part-head">
+      <span class="part-tag">第3部</span>
+      <span class="part-title">オーナー編：抱え込まずに任せる</span>
+    </div>
+    <p class="part-why">本書最大の差別化＝両視点。オーナーの悩みはアシスタントの提案が刺さる場所そのもの。</p>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">第6章</div>
+        <div class="ch-body">
+          <div class="ch-title">何を・誰に・どう頼むか</div>
+          <div class="ch-desc">「自分でやった方が早い」の罠→最初に手放すのは感情のいらない定型業務（会員管理・一次サポート）→ゴールから渡す依頼文の型（ゴール・範囲・判断基準・報酬）</div>
+          <div class="ch-goal">ゴール：手放す業務1つ＋依頼文の下書き</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第7章</div>
+        <div class="ch-body">
+          <div class="ch-title">指示の出し方・報酬の基準・属人化させない体制</div>
+          <div class="ch-desc">業務委託に「察してほしい」は通じない→期待値3点セット（返信目安・稼働時間帯・判断ライン）／報酬相場感／「マニュアル化も業務のうち」で属人化を防ぐ</div>
+          <div class="ch-goal">ゴール：期待値3点セットを言語化する</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 第4部 -->
+  <section class="part" style="--accent: var(--p4);">
+    <div class="part-head">
+      <span class="part-tag">第4部</span>
+      <span class="part-title">仕組み化編：長く続けるための技術</span>
+    </div>
+    <p class="part-why">AI仕組み化＝いま一番差がつく場所。ただし「時短で止めない」が分かれ道。</p>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">第8章</div>
+        <div class="ch-body">
+          <div class="ch-title">AIで運営業務を仕組み化する</div>
+          <div class="ch-desc">月次レポート丸2日→10分／入会導線のUTAGE全自動化（構築1件10万円の提案にもなる）／配信文AI化／サポートBot。浮いた時間で提案を出すのが「仕組みの人」</div>
+          <div class="ch-goal">ゴール：今週AIで試す1業務を選ぶ</div>
+        </div>
+      </div>
+      <div class="ch">
+        <div class="ch-num">第9章</div>
+        <div class="ch-body">
+          <div class="ch-title">燃え尽きないためのバウンダリー</div>
+          <div class="ch-desc">対応時間の宣言・受け口を絞る・感情労働に値段をつける。お客様の声の蓄積は主催のモチベーション・セールス素材・自分のやりがいの3役</div>
+          <div class="ch-goal">ゴール：境界線を1つ決める</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 終章 -->
+  <section class="part" style="--accent: var(--end);">
+    <div class="part-head">
+      <span class="part-tag">終章</span>
+      <span class="part-title">コミュニティは「人の場」。だから人が武器になる</span>
+    </div>
+    <div class="chapters">
+      <div class="ch">
+        <div class="ch-num">終章</div>
+        <div class="ch-body">
+          <div class="ch-desc">価値観の書き換えで締める。仕組みは「人への向き合い」に時間を使うためにある。「まず1つだけ」の行動リスト（マップに○／提案3行／AI仕組み化1つ）→巻末チェックリスト→特典受け取りへ</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 特典 -->
+  <section class="part" style="--accent: #b0894a;">
+    <div class="part-head">
+      <span class="part-tag">特典×5</span>
+      <span class="part-title">読んで終わりにさせない実務セット</span>
+    </div>
+    <div class="bonus-grid">
+      <div class="bonus"><b>1. 業務分担マップ</b><span>クライアントとのすり合わせにそのまま使えるシート ※要制作</span></div>
+      <div class="bonus"><b>2. 進行管理・タスク台帳テンプレート</b><span>スプレッドシート（講座資産を流用可）</span></div>
+      <div class="bonus"><b>3. お客様の声 整理・蓄積フォーマット</b><span>継続・単価交渉の材料づくり</span></div>
+      <div class="bonus"><b>4. 月次レポートAI化プロンプトセット</b><span>丸2日→10分の型 ※要制作</span></div>
+      <div class="bonus"><b>5. 報酬移行 提案文テンプレート</b><span>時給→月額固定の切り出し文面 ※要制作</span></div>
+    </div>
+  </section>
+
+  <footer>
+    素材：旧No.02下書き＋コミュニティ運営マスター講座（全12章構想）＋あやねえ実例｜しょーてぃ式（小B・完了チェック・ペイ感メモ）＋迫さん9技術準拠｜フル講座（98,000円〜構想）への入口
+  </footer>
+
+</div>
+</body>
+</html>

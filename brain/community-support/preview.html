@@ -1,0 +1,937 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コミュニティ運営サポートの教科書｜本文プレビュー</title>
+<style>
+  :root {
+    --ink: #2b2b33; --ink2: #55555f; --sub: #6b6b78;
+    --bg: #f7f6f3; --card: #ffffff; --line: #e8e6e0;
+    --p1: #c0563b; --p2: #d99a2b; --p3: #3e7c6f; --p4: #4a6fa5;
+    --free: #8a7ab5; --end: #9a5b7d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.9;
+    padding: 40px 16px 80px;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 12px; }
+  .label {
+    display: inline-block; font-size: 12px; letter-spacing: 2px; color: var(--sub);
+    border: 1px solid var(--line); background: var(--card); border-radius: 99px;
+    padding: 4px 16px; margin-bottom: 14px;
+  }
+  h1 { font-size: clamp(24px, 5vw, 32px); letter-spacing: 1px; margin-bottom: 8px; }
+  .subtitle { font-size: clamp(12px, 3vw, 14px); color: var(--sub); margin-bottom: 6px; }
+  .meta { font-size: 12px; color: var(--sub); }
+  .toolbar { text-align: center; margin: 18px 0 28px; }
+  .toolbar button {
+    font-family: inherit; font-size: 12.5px; color: var(--sub);
+    background: var(--card); border: 1px solid var(--line); border-radius: 99px;
+    padding: 7px 18px; margin: 0 4px; cursor: pointer;
+  }
+  .toolbar button:hover { color: var(--ink); border-color: #c9c6bd; }
+
+  .part {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    margin-bottom: 18px; overflow: hidden;
+  }
+  .part-head {
+    padding: 15px 22px 13px; border-bottom: 1px solid var(--line);
+    border-left: 6px solid var(--accent);
+  }
+  .part-title { font-size: clamp(15px, 3.6vw, 17.5px); font-weight: bold; }
+  .group-intro { padding: 18px 24px 6px; font-size: 14.5px; }
+
+  details.ch { border-top: 1px solid var(--line); }
+  details.ch:first-of-type { border-top: none; }
+  details.ch summary {
+    list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px;
+    padding: 14px 22px; font-weight: bold; font-size: clamp(13.5px, 3.4vw, 15.5px);
+    transition: background .15s;
+  }
+  details.ch summary::-webkit-details-marker { display: none; }
+  details.ch summary:hover { background: color-mix(in srgb, var(--accent) 5%, #fff); }
+  details.ch summary::after {
+    content: "＋"; margin-left: auto; color: var(--accent);
+    font-weight: normal; flex-shrink: 0;
+  }
+  details.ch[open] summary::after { content: "－"; }
+  details.ch[open] summary { background: color-mix(in srgb, var(--accent) 7%, #fff); }
+  .ch-num {
+    flex-shrink: 0; font-size: 11.5px; font-weight: bold; color: #fff;
+    background: var(--accent); border-radius: 6px; padding: 2px 10px; white-space: nowrap;
+  }
+  .ch-content { padding: 6px 24px 26px; font-size: 14.5px; }
+
+  .ch-content h3, .group-intro h3 {
+    font-size: 15.5px; margin: 26px 0 10px; padding-left: 10px;
+    border-left: 4px solid var(--accent);
+  }
+  .ch-content p, .group-intro p { margin: 14px 0; }
+  .ch-content ul, .ch-content ol, .group-intro ul, .group-intro ol { margin: 14px 0 14px 1.5em; }
+  .ch-content li, .group-intro li { margin: 4px 0; }
+  .ch-content hr, .group-intro hr { border: none; border-top: 1px dashed var(--line); margin: 22px 0; }
+  .ch-content strong, .group-intro strong {
+    background: linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 28%, #fff) 62%);
+  }
+  .ch-content pre, .group-intro pre {
+    background: #f4f2ec; border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px; font-size: 12.5px; line-height: 1.7; overflow-x: auto;
+    font-family: "Hiragino Kaku Gothic ProN", monospace; margin: 14px 0;
+  }
+  .ch-content table, .group-intro table {
+    border-collapse: collapse; font-size: 12.5px; margin: 14px 0; width: 100%;
+  }
+  .ch-content th, .ch-content td, .group-intro th, .group-intro td {
+    border: 1px solid var(--line); padding: 7px 10px; text-align: left; vertical-align: top;
+  }
+  .ch-content th, .group-intro th { background: #faf9f6; }
+
+  blockquote {
+    border-radius: 10px; padding: 12px 16px; margin: 16px 0; font-size: 13.5px;
+    border: 1px solid var(--line); background: #faf9f6;
+  }
+  blockquote p { margin: 4px 0 !important; }
+  blockquote.goal  { background: #f3f0fa; border-color: #ddd3ef; }
+  blockquote.pay   { background: #fdf6e9; border-color: #f0e2c4; }
+  blockquote.check { background: #eef6f0; border-color: #d3e8d9; }
+  blockquote.imgnote { background: #f6f3ee; border-style: dashed; color: #8a8578; font-size: 12.5px; }
+
+  .bridge {
+    text-align: center; color: var(--ink2); font-size: 13.5px; margin: 4px 8px 24px;
+    padding: 6px 16px;
+  }
+  .bridge::before { content: "▼"; display: block; font-size: 11px; color: #c9c6bd; margin-bottom: 4px; }
+  .bridge p { margin: 3px 0; }
+
+  footer { text-align: center; color: #a5a29a; font-size: 11px; margin-top: 40px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="label">Brain 本文プレビュー｜見出しをタップで開閉</div>
+    <h1>コミュニティ運営サポートの教科書</h1>
+    <p class="subtitle">〜「あなたが欠かせない」と言われる人になる。業務マップ・報酬設計・仕組み化の全部〜</p>
+    <p class="meta">著者：あやねえ（水野彩香）｜2,980円（先行3日間）→ 4,980円 → 最終9,800円｜約13,000字</p>
+  </header>
+  <div class="toolbar">
+    <button onclick="document.querySelectorAll('details.ch').forEach(d=>d.open=true)">すべて開く</button>
+    <button onclick="document.querySelectorAll('details.ch').forEach(d=>d.open=false)">すべて閉じる</button>
+  </div>
+<section class="part" style="--accent:var(--free)">
+<div class="part-head"><span class="part-title">無料部分（販売ページ）</span></div>
+<div class="group-intro"><hr />
+<p>「業務量はどんどん増えるのに、報酬はずっと同じ」</p>
+<p>「分単位の細かいタスクに追われて、気づいたら1日が終わっている」</p>
+<p>コミュニティ運営のお仕事、そんな状態になっていませんか？</p>
+<p>そしてこれを放置すると、あなたはこれからも<br />
+「頑張るほど損をする」働き方のまま、<br />
+いつか燃え尽きて、その案件ごと手放すことになります。</p>
+<p>実際、コミュニティ運営のウラカタが疲弊して辞めていく現場を、<br />
+私は何度も見てきました。</p>
+<p>でも断言します。原因は、あなたの頑張りが足りないからではありません。<br />
+<strong>「報酬が何で決まるか」の構造を、誰も教えてくれなかっただけ</strong>です。</p>
+<hr /></div>
+<details class="ch" open><summary><span class="ch-title">報酬は「作業量」ではなく「手放せなさ」で決まる</span></summary>
+<div class="ch-content"><p>コミュニティ運営の仕事は、本当に無限にあります。</p>
+<p>入金確認、参加サポート、質問対応、告知・配信、<br />
+イベント準備、名簿管理、データ集計…。</p>
+<p>だから「作業量」で勝負すると、必ず疲弊します。<br />
+やってもやっても終わらないし、時給の枠は変わらないからです。</p>
+<p>一方で、同じコミュニティ運営でも、<br />
+月額固定で10万円、20万円とお願いされ続ける人がいます。</p>
+<p>差はどこにあるのか。</p>
+<p><strong>主催者が「この人がいないと回らない」と感じているかどうか。</strong></p>
+<p>作業を巻き取る人は、いくらでも替えが効きます。<br />
+でも、運営の仕組みごと支えている人は、手放せません。</p>
+<p>こう考えてみてください。</p>
+<p><strong>報酬 ＝ 作業量 ではなく、報酬 ＝ 手放せなさ</strong></p>
+<p>この教科書は、「作業する人」から「手放せない人」へ移るための<br />
+業務マップ・報酬設計・仕組み化を、順番に渡していく1冊です。</p>
+<blockquote class="imgnote">
+<p>🖼️ <strong>【アイキャッチ：image02】</strong>（「報酬＝手放せなさ」の直後）<br />
+内容：対比図解。左「作業量で働く人：タスクの山＋時給の天井」／右「手放せなさで働く人：仕組みの図＋月額固定」<br />
+画像内の文言：「報酬 ＝ 作業量 じゃない」「報酬 ＝ 手放せなさ」「作業を巻き取る人は替えが効く。仕組みを支える人は手放せない」</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">この教科書は「両側」から書きました</span></summary>
+<div class="ch-content"><p>コミュニティ運営の悩みには、実は2種類あります。</p>
+<p><strong>運営を手伝う側（アシスタント）のあなた：</strong></p>
+<ul>
+<li>業務量に対して、報酬が見合っていない</li>
+<li>分単位のタスクが多くて、工数も報酬も管理しづらい</li>
+<li>単価の上げ方が分からない</li>
+<li>提案もしているのに、結局「作業」ばかり振られる</li>
+</ul>
+<p><strong>コミュニティを持つ側（オーナー）のあなた：</strong></p>
+<ul>
+<li>一人で回すのが、もう限界</li>
+<li>何を・誰に・どう頼めばいいか分からない</li>
+<li>指示の出し方も、報酬の決め方も分からない</li>
+</ul>
+<p>私はこの両方を、現場で経験してきました。<br />
+だからこの教科書は、珍しい構成になっています。</p>
+<p><strong>アシスタント編とオーナー編、両方が入っています。</strong></p>
+<p>「片方しか関係ない」と思うかもしれませんが、逆です。<br />
+アシスタントが単価を上げる最短ルートは「オーナーの頭の中」を知ることで、<br />
+オーナーが上手に任せる最短ルートは「アシスタントの現場」を知ることだからです。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">ゴールをはっきり約束します</span></summary>
+<div class="ch-content"><p>この教科書のB地点（読み終えて実践した状態）はこうです。</p>
+<p><strong>【アシスタントの方】<br />
+全業務マップで「自分の現在地」と「次に広げる業務」を特定し、<br />
+報酬の形を変える提案の下書きが1本できている状態</strong></p>
+<p><strong>【オーナーの方】<br />
+「最初に手放す業務」を1つ決めて、依頼文の下書きができている状態</strong></p>
+<p>「月10万円稼げます」とは約束しません。それはあなたの実行次第だからです。<br />
+でも上の状態までは、この教科書を読んで手を動かせば100%到達できます。<br />
+そして実例でお見せする通り、そこから先の再現性は十分にあります。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">なぜ私がこれを書けるのか</span></summary>
+<div class="ch-content"><p>あやねえ（水野彩香）と申します。</p>
+<ul>
+<li>コミュニティ運営歴5年以上。数十人〜1,000人規模、売上数千万〜数億円のコミュニティを裏側から支えてきました</li>
+<li>現役で3つのコミュニティ運営に携わっています</li>
+<li>スタートは時給1,500円のウラカタ業務。今は月額固定で複数のコミュニティに入っています</li>
+<li>大阪大学卒業後、任天堂に10年勤務。経営管理・進捗管理を担当</li>
+<li>独立11ヶ月で月収100万円。6年間で契約終了ゼロ。案件はすべて紹介と口コミ</li>
+<li>大手AIマーケ講座の特別講師。自分でも秘書力マスター講座を主宰し、コミュニティを運営する「オーナー側」でもあります</li>
+</ul>
+<p>つまり私は、<strong>雇われて運営する側と、人に任せる主催側の両方を現役でやっています。</strong></p>
+<p>「どう動けば手放せなくなるか」も、<br />
+「どう頼めば任せてよかったと思えるか」も、<br />
+両側の景色を知った上で書いた教科書です。</p>
+<blockquote class="imgnote">
+<p>🖼️ <strong>【アイキャッチ：image03】</strong>（著者紹介の直後）<br />
+内容：あやねえの実績まとめ図解。カード風デザイン<br />
+画像内の文言：「コミュニティ運営歴5年以上」「数十人〜1,000人規模・売上数千万〜数億円に関与」「時給1,500円 → 月額固定×複数コミュニティ」「運営する側 × 任せる側の両視点」</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">3つの実例</span></summary>
+<div class="ch-content"><p><strong>実例1：月5万円の運営案件が、複数の固定契約に化けた話（あやねえ本人）</strong></p>
+<p>月5万円のコミュニティ運営案件で、頼まれていないのに<br />
+Xアカウントを立ち上げて運用し、分析レポートを作り、<br />
+ローンチの裏側を巻き取りました。</p>
+<p>「作業」の枠を超えて「仕組み」を持ち込んだ結果、<br />
+その案件は複数の固定契約に育ち、今も継続しています。<br />
+頼まれたことだけやっていたら、今も月5万円のままだったと思います。</p>
+<p><strong>実例2：時給1,300円の運営事務が、月10万円になった話（受講生）</strong></p>
+<p>コミュニティ運営の事務作業からスタートした受講生が、<br />
+担当範囲を少しずつ広げて、月額3万円→5万円→10万円に。<br />
+特別なスキルを足したわけではありません。<br />
+「作業の人」から「任せられる人」へ、立ち位置を変えただけです。</p>
+<p><strong>実例3：月次レポート「丸2日」が「10分」になった話</strong></p>
+<p>あるコミュニティで毎月丸2日かかっていた月次レポート作成を、<br />
+AIを使った仕組みに変えて10分にしました。<br />
+浮いた時間で改善提案を出せるようになり、<br />
+「集計する人」から「数字を読んで提案する人」に役割が変わりました。</p>
+<p>3つに共通するのは、<strong>作業を増やしたのではなく、関わり方を変えた</strong>ことです。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">「でも自分には難しいんじゃ...」という方へ</span></summary>
+<div class="ch-content"><ul>
+<li>
+<p><strong>コミュニティ運営の経験がなくても大丈夫</strong><br />
+  第2章の全業務マップは「これから狙う人」が案件の全体像を掴む地図にもなります。<br />
+  実際、運営未経験から入って月10万円まで行った受講生の道のりをベースにしています。</p>
+</li>
+<li>
+<p><strong>提案なんてしたことがなくても大丈夫</strong><br />
+  第5章で「見えない価値を言葉にする」手順を型にしました。<br />
+  特典の提案文テンプレートに沿って埋めるだけで、最初の1本が作れます。</p>
+</li>
+<li>
+<p><strong>ITやAIが苦手でも大丈夫</strong><br />
+  第8章の仕組み化は「コピペで試せるプロンプト」から始めます。<br />
+  ツールの難しい設定は要りません。</p>
+</li>
+<li>
+<p><strong>子育て中・時間がなくても大丈夫</strong><br />
+  私は3児の母で、週3〜4日稼働です。時間がないからこそ<br />
+  「作業量で戦わない」この教科書の内容が効きます。</p>
+</li>
+</ul>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">「他の教材と何が違うの？」</span></summary>
+<div class="ch-content"><table>
+<thead>
+<tr>
+<th></th>
+<th>在宅ワーク系教材</th>
+<th>SNS運用・発信系教材</th>
+<th>この教科書</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>扱う領域</td>
+<td>案件の取り方まで</td>
+<td>自分の発信を伸ばす</td>
+<td>運営案件の中身・報酬・仕組み化</td>
+</tr>
+<tr>
+<td>視点</td>
+<td>働く側のみ</td>
+<td>発信者のみ</td>
+<td>アシスタント×オーナーの両視点</td>
+</tr>
+<tr>
+<td>具体度</td>
+<td>心構え中心</td>
+<td>事例は他人の成功談</td>
+<td>業務マップ・報酬ステップ・テンプレ付き</td>
+</tr>
+<tr>
+<td>その先</td>
+<td>取って終わり</td>
+<td>バズって終わり</td>
+<td>「手放せない存在」として継続・単価アップ</td>
+</tr>
+</tbody>
+</table>
+<p>コミュニティ運営「サポート」に特化した教材は、ほとんど存在しません。<br />
+需要はずっとあるのに、体系化した人がいなかった領域です。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">オーナー・主催者の方へ：これは「頼み方の教科書」でもあります</span></summary>
+<div class="ch-content"><p>第3部はまるごとオーナー編です。</p>
+<ul>
+<li>何を・誰に・どう頼むか（業務の仕分け方）</li>
+<li>指示の出し方・報酬の決め方の基準</li>
+<li>「その人がいないと分からない」をなくす属人化対策</li>
+</ul>
+<p>外注さんやアシスタントに渡す「うちの運営の共通言語」としても使えます。<br />
+一人で抱えて限界が来る前に、任せる側の型を手に入れてください。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">価格について</span></summary>
+<div class="ch-content"><p>通常価格は4,980円からスタートします。<br />
+今後、購入者の実践事例や特典の追加に合わせて、最終的には<strong>9,800円まで値上げ予定</strong>です。<br />
+<strong>先行3日間だけ、2,980円</strong>で購入できます。</p>
+<p>正直に言うと、この価格はかなり控えめに付けています。</p>
+<p>本編の核になっている「全業務マップ」は、<br />
+コンサルタントが業務整理として作れば10万〜30万円かかることもある成果物です。<br />
+そして時給→月額固定への移行が1本決まれば、月数万円の差が毎月続きます。</p>
+<p>もちろん成果を保証するものではありません。<br />
+ただ、報酬の形が1つ変わるだけで教科書代の何十倍にもなる領域なので、<br />
+「試さない理由がない」価格に設定しました。</p>
+<blockquote class="imgnote">
+<p>🖼️ <strong>【アイキャッチ：image04】</strong>（価格セクション直後）<br />
+内容：価格の階段図。2,980円（先行3日間）→ 4,980円（通常）→ 9,800円（最終）の3段<br />
+画像内の文言：「先行3日間 2,980円」→「通常 4,980円」→「最終 9,800円まで値上げ予定」＋「早いほど安い」</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">特典（実務でそのまま使うためのセット）</span></summary>
+<div class="ch-content"><ul>
+<li>
+<p>【特典1】<strong>コミュニティ運営 業務分担マップ</strong><br />
+  第2章の全業務マップをシート化。クライアントとの「どこまでが私の仕事か」の<br />
+  すり合わせに、そのまま画面共有で使えます。</p>
+</li>
+<li>
+<p>【特典2】<strong>進行管理・タスク台帳テンプレート</strong>（スプレッドシート）<br />
+  分単位タスクに埋もれない運営管理の型。複数案件でも破綻しません。</p>
+</li>
+<li>
+<p>【特典3】<strong>お客様の声 整理・蓄積フォーマット</strong><br />
+  コミュニティの価値を可視化する資産づくり。継続・単価交渉の材料になります。</p>
+</li>
+<li>
+<p>【特典4】<strong>月次レポートAI化プロンプトセット</strong><br />
+  「丸2日→10分」を実現した型をプロンプトごと配布します。</p>
+</li>
+<li>
+<p>【特典5】<strong>報酬移行 提案文テンプレート</strong><br />
+  時給→月額固定の切り出し方。言いづらい話を、事業の話に変える文面です。</p>
+</li>
+</ul>
+<blockquote class="imgnote">
+<p>🖼️ <strong>【アイキャッチ：image05】</strong>（特典セクションの直後）<br />
+内容：特典5点の一覧図解。アイコン付きカード<br />
+画像内の文言：「購入者特典 全5点」「①業務分担マップ ②進行管理・タスク台帳 ③お客様の声フォーマット ④月次レポートAI化プロンプト ⑤報酬移行 提案文テンプレ」「読んで終わりにさせない実務セット」</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">この教科書が向いていない人</span></summary>
+<div class="ch-content"><ul>
+<li>コミュニティ運営に今後も一切関わる予定のない人</li>
+<li>「読むだけ」で何も試す気がない人</li>
+<li>主催者を出し抜いて報酬だけ上げたい人（この教科書の提案は、相手の事業メリットが先です）</li>
+</ul>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">購入後のあなたへ</span></summary>
+<div class="ch-content"><p>購入直後：全業務マップで「自分の現在地」が見えます。<br />
+疲弊の原因が「担当領域の曖昧さ」だったことに気づくはずです。</p>
+<p>1週間後：「次に広げる業務」または「最初に手放す業務」が決まり、<br />
+提案（依頼）の下書きができています。</p>
+<p>1ヶ月後：AIの仕組み化を1つ試し、<br />
+「作業の人」から「仕組みの人」への移行が始まっています。</p>
+<p>3ヶ月後：「あなたが欠かせない」の声とともに、<br />
+報酬の形を変える話が現実になっているのがこの頃です。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">さあ、有料エリアへ</span></summary>
+<div class="ch-content"><p>コミュニティ運営は、疲弊する働き方のまま続けるには、もったいなすぎる仕事です。</p>
+<p>「頑張るほど損をする」構造のまま、消耗を続けますか？</p>
+<p>それとも、「あなたが欠かせない」と言われる関わり方を、今日手に入れますか？</p>
+<p>価格は4,980円から、最終的に9,800円まで値上げ予定。<br />
+先行3日間は2,980円です。</p>
+<hr />
+<p><strong>▼ 続きを読む（先行3日間 2,980円 → 通常4,980円）</strong></p>
+<hr />
+<hr />
+<hr /></div></details>
+
+</section>
+<div class="bridge">ここから有料エリア</div>
+<section class="part" style="--accent:#8a8a94">
+<div class="part-head"><span class="part-title">はじめに（全体マップ・読み方ガイド）</span></div>
+<div class="group-intro"><p>この教科書を手に取ってくれて、ありがとうございます。</p>
+<p>先に、この教科書が「誰のための本」なのかをはっきりさせておきます。</p>
+<p><strong>コミュニティ運営のお仕事に、すでに関わっている。<br />
+あるいは、これから案件として狙っている。<br />
+でも「作業量ばかり増えて報酬が変わらない」未来が見えてしまっている…そんな人のための本です。</strong></p>
+<p>そしてもう1人。<br />
+<strong>コミュニティを一人で抱えて、限界が近づいているオーナー・主催者</strong>のための本でもあります。</p>
+<p>いきなり業務の話には入りません。<br />
+最初にお伝えしたいのは、<strong>「コミュニティ運営の報酬は、何で決まっているのか」</strong>です。</p>
+<p>ここが腹落ちしていないと、どんなテンプレも仕組みも<br />
+「いい話だった」で終わってしまうからです。</p>
+<p>まず全体の地図を渡してから、始めましょう。</p>
+<hr />
+<h3>全体マップ（ゴールまでの一本道）</h3>
+<pre><code>【第1部 全体像編】報酬の構造と、仕事の全体図
+第1章 「消耗品」と「事業パートナー」を分けるもの
+第2章 コミュニティ運営の全業務マップ
+　　└ 現在地が分かった。ここからは「稼ぐ側」の各論 ★
+
+【第2部 アシスタント編】月10万円に届く関わり方
+第3章 疲弊しない担当領域の決め方
+第4章 時給の限界を超える報酬設計
+第5章 「見えない価値」を提案に変える
+　　└ ここまでが「稼ぐ側」。ここからは「頼む側」の頭の中 ★
+
+【第3部 オーナー編】抱え込まずに任せる
+第6章 何を・誰に・どう頼むか
+第7章 指示の出し方・報酬の基準・属人化させない体制
+
+【第4部 仕組み化編】長く続けるための技術
+第8章 AIで運営業務を仕組み化する
+第9章 燃え尽きないためのバウンダリー
+
+【終章】コミュニティは「人の場」。だから人が武器になる
+</code></pre>
+<blockquote class="imgnote">
+<p>🖼️ <strong>【アイキャッチ：image06】</strong>（有料部分・全体マップの直後）<br />
+内容：全体マップの図解版。第1部〜第4部＋終章のロードマップ図<br />
+画像内の文言：「第1部 全体像 → 第2部 アシスタント → 第3部 オーナー → 第4部 仕組み化 → 終章」「構造を知る → 稼ぐ側 → 頼む側 → 続ける技術」</p>
+</blockquote>
+<p><strong>読み方ガイド：</strong></p>
+<ul>
+<li>アシスタント（またはこれから狙う人）→ 第1部から順番に。第3部のオーナー編も必ず読んでください。あなたの提案が刺さるかどうかは、相手の頭の中を知っているかで決まります</li>
+<li>オーナー・主催者 → 第1部→第3部→第4部の順でもOK。ただし第2部を読むと「アシスタントに何が起きているか」が分かり、任せ方が一段うまくなります</li>
+</ul>
+<p>最後まで読み終えた方のために、巻末に特典の受け取り方があります。<br />
+業務分担マップとテンプレ集は、読み終えたその日から使える完走のご褒美です。</p>
+<hr /></div>
+</section>
+<section class="part" style="--accent:var(--p1)">
+<div class="part-head"><span class="part-title">第1部：全体像編。報酬の構造と、仕事の全体図</span></div>
+<details class="ch"><summary><span class="ch-num">第1章</span><span class="ch-title">「消耗品」と「事業パートナー」を分けるもの</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>「頑張っているのに報酬が変わらない」の正体が構造で分かり、自分がどちら側にいるかを自覚した状態。</p>
+</blockquote>
+<h3>まず、正直にチェックしてみてください</h3>
+<p>こんな状態、当てはまる番号を数えてみてください。</p>
+<ol>
+<li>業務量は増えているのに、報酬はずっと同じ</li>
+<li>分単位の細かいタスクが多くて、工数の報告だけで消耗する</li>
+<li>「単価を上げたい」と思っているが、切り出し方が分からない</li>
+<li>提案もしているのに、結局「作業」ばかり振られる</li>
+<li>このままあと1年続けられる気がしない</li>
+</ol>
+<p>いくつ当てはまっても、大丈夫です。<br />
+あなたの能力の問題ではなく、<strong>関わり方の構造の問題</strong>だからです。<br />
+構造は、今日から変えられます。</p>
+<h3>お祭りの話をさせてください</h3>
+<p>コミュニティは、お祭りに似ています。</p>
+<p>にぎわっているお祭りには、必ず裏側があります。<br />
+出店の配置を決める人、警備の動線を考える人、収支を管理する人。<br />
+つまり実行委員です。</p>
+<p>ここで質問です。<br />
+<strong>当日だけ手伝う売り子さんと、実行委員の右腕。<br />
+来年もまた声がかかるのは、どちらでしょうか？</strong></p>
+<p>答えは明らかですよね。</p>
+<p>売り子さんの仕事は大事です。でも、替えが効きます。<br />
+実行委員の右腕は、お祭りの回し方そのものを知っているから、手放せません。</p>
+<ul>
+<li><strong>売り子 ＝ 作業を巻き取る人</strong>（言われたタスクをこなす。時給制。替えが効く）</li>
+<li><strong>実行委員の右腕 ＝ 仕組みを支える人</strong>（運営の流れごと理解している。月額固定。手放せない）</li>
+</ul>
+<p>同じ「お祭りを手伝う」でも、報酬も、続き方も、まったく違う。<br />
+コミュニティ運営も、完全に同じ構造です。</p>
+<h3>報酬 ＝ 手放せなさ</h3>
+<p>だから、こう考えてください。</p>
+<p><strong>報酬は「作業量」ではなく「手放せなさ」で決まる。</strong></p>
+<p>作業量で報酬を増やそうとすると、時間の上限にぶつかります。<br />
+しかも効率化するほど稼働時間が減って、時給制だと収入まで減る。<br />
+<strong>頑張るほど損をする</strong>という、最悪の構造です。</p>
+<p>一方、「手放せなさ」は時間に比例しません。<br />
+運営の全体像を知っている。仕組みを作った。数字を読んで提案できる。<br />
+そうなった人への報酬は、時間ではなく<strong>役割</strong>に払われます。</p>
+<p>この教科書のすべては、この1行に向かっています。<br />
+「作業する人」から「手放せない人」へ。</p>
+<blockquote class="check">
+<p><strong>✅ 完了チェック：</strong><br />
+□ 冒頭の5つの悩みを「構造の問題」として捉え直した<br />
+□ 自分は今「売り子」と「実行委員の右腕」のどちら側か、正直に自覚した</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-num">第2章</span><span class="ch-title">コミュニティ運営の全業務マップ</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>運営業務の全体図を見渡し、「自分の現在地」と「次に広げる業務」（オーナーは「最初に手放す業務」）を1つ特定した状態。</p>
+</blockquote>
+<h3>全体図を持っている人は、それだけで強い</h3>
+<p>疲弊するウラカタと、手放せないウラカタの最初の分かれ目は、<br />
+スキルではなく<strong>「全体図を持っているかどうか」</strong>です。</p>
+<p>全体図がないと、飛んでくるタスクを順番に打ち返すだけになります。<br />
+全体図があると、「今どこを担っていて、次にどこを取りに行くか」が見える。</p>
+<p>コミュニティ運営の業務は、大きく6つの領域に分かれます。</p>
+<p><strong>① 会員管理</strong><br />
+入退会対応、決済・入金確認、名簿管理、アクセス権限の管理</p>
+<p><strong>② 収支管理</strong><br />
+請求・支払い、売上集計、経理サポート</p>
+<p><strong>③ カスタマーサポート</strong><br />
+質問対応、トラブル対応、「ログインできない」「動画が見られない」系の一次対応</p>
+<p><strong>④ 広報・コンテンツ発信</strong><br />
+告知文・配信文の作成、SNS運用、お客様の声のまとめ</p>
+<p><strong>⑤ イベント企画・運営</strong><br />
+オンライン/オフラインイベント、作業会、セミナーの準備・当日運営・アフターフォロー</p>
+<p><strong>⑥ データ分析・改善提案</strong><br />
+参加率・継続率の集計、アンケート分析、改善の提案</p>
+<blockquote class="imgnote">
+<p>🖼️ <strong>【アイキャッチ：image07】</strong>（6領域の直後）<br />
+内容：全業務マップの図解。6領域を円 or マトリクスで配置し、①→⑥に向かって「作業寄り→提案寄り」のグラデーション<br />
+画像内の文言：「コミュニティ運営 全業務マップ」「①会員管理 ②収支管理 ③サポート ④広報・発信 ⑤イベント ⑥分析・提案」「右に行くほど『手放せない仕事』」</p>
+</blockquote>
+<h3>このマップの使い方</h3>
+<p>ポイントは「順番に全部やる」ではなく、<strong>逆引きで使う</strong>ことです。</p>
+<ul>
+<li>
+<p><strong>アシスタントの方</strong>：自分が今担っている業務に○を付けてください。<br />
+  次に、○の隣にある「まだやっていない業務」に印を付ける。それが次に広げる候補です。<br />
+  ①〜③（作業寄り）だけに○が集中している人ほど、④〜⑥に伸びる余地があります。</p>
+</li>
+<li>
+<p><strong>オーナーの方</strong>：自分が今、自力でやっている業務に○を付けてください。<br />
+  その中で「自分にしかできない」ものは、実はほとんどないはずです。<br />
+  ①〜③から「最初に手放す1つ」を選んでください（理由は第6章で説明します）。</p>
+</li>
+</ul>
+<h3>「事務の人」が月10万円になった道のりも、このマップの上にある</h3>
+<p>無料部分で紹介した受講生（時給1,300円→月10万円）は、<br />
+①会員管理の事務作業からスタートしました。</p>
+<p>そこから③サポートの一次対応を巻き取り、<br />
+④の告知文をAIで作って提案し、⑥の参加率レポートを出すようになった。<br />
+マップの右側に少しずつ移動した結果が、月額3万円→5万円→10万円です。</p>
+<p>一足飛びではありません。<strong>隣のマスに1つずつ</strong>です。</p>
+<blockquote class="pay">
+<p><strong>💰 ペイ感メモ：</strong><br />
+この業務マップ、経営コンサルタントが業務整理として作ると10万〜30万円かかることもあります。<br />
+そして「担当外の業務をなんとなく拾い続けるサービス残業」は、週2時間としても時給1,500円換算で月1.2万円分。<br />
+マップで「ここまでが私の仕事」と線を引くだけで、その流出が止まります。</p>
+<p><strong>✅ 完了チェック：</strong><br />
+□ 6領域の中で、自分（or 自分のコミュニティ）の現在地に○を付けた<br />
+□ 「次に広げる業務」（アシスタント）or「最初に手放す業務」（オーナー）を1つ選んだ</p>
+</blockquote>
+<hr />
+<hr /></div></details>
+
+</section>
+<div class="bridge"><p>お祭りの全体図が手に入りました。<br />
+ここからは「売り子から実行委員の右腕へ」移るための各論です。<br />
+まずは稼ぐ側、アシスタント編から。</p></div>
+<section class="part" style="--accent:var(--p2)">
+<div class="part-head"><span class="part-title">第2部：アシスタント編。月10万円に届く関わり方</span></div>
+<details class="ch"><summary><span class="ch-num">第3章</span><span class="ch-title">疲弊しない担当領域の決め方</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>「無限に巻き取って燃え尽きる」を防ぐ、担当領域のすり合わせ方が分かった状態。</p>
+</blockquote>
+<h3>疲弊の正体は「業務量」ではなく「曖昧さ」</h3>
+<p>コミュニティ運営で一番消耗するのは、実は作業そのものではありません。<br />
+<strong>「どこまでが自分の仕事か分からないまま動くこと」</strong>です。</p>
+<p>境界が曖昧だと、こうなります。</p>
+<ul>
+<li>頼まれていないことまで「私がやるべき？」と迷い続ける</li>
+<li>深夜のメンバー質問に「すぐ返さなきゃ」と反応し続ける</li>
+<li>気づけば、報酬に含まれていない業務が半分を超えている</li>
+</ul>
+<p>真面目な人ほど、この沼にはまります。<br />
+私も時給1,500円時代、まさにこれでした。</p>
+<h3>最初に「業務分担マップ」を作る</h3>
+<p>解決策はシンプルです。<br />
+第2章の全業務マップを使って、<strong>クライアントと一緒に線を引く</strong>こと。</p>
+<ol>
+<li>6領域の業務を並べる（特典1のシートをそのまま使えます）</li>
+<li>「私が担当」「主催者が担当」「今は誰もやらない」に仕分ける</li>
+<li>対応時間帯と返信の目安（例：平日10-17時、24時間以内返信）も明記する</li>
+</ol>
+<p>これを契約時、または次の更新タイミングで出すだけで、働き方が変わります。</p>
+<p>大事なのは、これが<strong>自分を守るためだけの線引きではない</strong>ことです。<br />
+主催者にとっても「何をお願いしているか」が見えるのは大きな安心で、<br />
+「ここまで整理してくれる人は初めて」という信頼につながります。</p>
+<p>線を引く行為そのものが、実行委員の右腕の仕事なんです。</p>
+<h3>「今は誰もやらない」が宝の山</h3>
+<p>仕分けをすると、必ず「今は誰もやらない」業務が出てきます。<br />
+お客様の声の蓄積、参加率の集計、イベント後のアンケート分析…。</p>
+<p>ここが、第5章で扱う<strong>提案のネタ帳</strong>になります。<br />
+「やりましょうか？」と言えるものが見えている状態を、この章で作っておいてください。</p>
+<blockquote class="check">
+<p><strong>✅ 完了チェック：</strong><br />
+□ 自分の案件で「報酬に含まれているか曖昧なまま拾っている業務」を書き出した<br />
+□ 業務分担マップを出すタイミング（契約更新・月初の定例など）を1つ決めた</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-num">第4章</span><span class="ch-title">時給の限界を超える報酬設計</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>時給→月額固定→プロジェクト単価の移行ステップが分かり、自分の「次の一段」が決まった状態。</p>
+</blockquote>
+<h3>時給制は、効率化した人が損をする</h3>
+<p>時給制の構造的な欠陥を、はっきり言います。</p>
+<p><strong>仕事が速くなるほど、収入が減る。</strong></p>
+<p>月次レポートに16時間かけていた人が、仕組み化して10分にしたら、<br />
+時給制ではその分の報酬が消えます。<br />
+価値を上げたのに、収入が下がる。おかしいですよね。</p>
+<p>だからコミュニティ運営の報酬は、段階的に形を変えていきます。</p>
+<p><strong>ステップ1：時給制</strong>（入口。まずは現場を知る期間）<br />
+<strong>ステップ2：月額固定</strong>（役割に対する報酬。「〇〇周りをお任せ」の状態）<br />
+<strong>ステップ3：月額固定＋プロジェクト単価</strong>（ローンチ支援・構築案件などを個別見積もりで上乗せ）</p>
+<blockquote class="imgnote">
+<p>🖼️ <strong>【アイキャッチ：image08】</strong>（報酬3ステップの直後）<br />
+内容：報酬移行の階段図。時給制→月額固定→月額固定＋プロジェクト単価の3段。各段に「時間に払われる→役割に払われる→成果に払われる」の注釈<br />
+画像内の文言：「報酬の3ステップ」「時給（時間に払われる）→ 月額固定（役割に払われる）→ ＋プロジェクト単価（成果に払われる）」</p>
+</blockquote>
+<h3>月額固定への切り出し方</h3>
+<p>「単価を上げてください」と言うから、言いづらいんです。<br />
+言うべきは、<strong>相手の事業メリットが先に来る提案</strong>です。</p>
+<p>型はこうです。</p>
+<ol>
+<li><strong>現状の整理</strong>：「現在、①会員管理と③サポートを時給でお受けしています」</li>
+<li><strong>相手のメリット</strong>：「月額固定にすると、時間を気にせず〇〇まで含めてお任せいただけます。工数報告のやり取りもなくなります」</li>
+<li><strong>具体的な提案</strong>：「業務範囲はこのマップの通り、月額〇万円でいかがでしょうか」</li>
+</ol>
+<p>ポイントは、時給×想定時間の単純換算に<strong>役割の値段を乗せる</strong>こと。<br />
+「いてくれるだけで安心」の分は、時間には現れないけれど確実に価値です。</p>
+<p>（この型の文面は、特典5のテンプレートに入れてあります）</p>
+<blockquote class="pay">
+<p><strong>💰 ペイ感メモ：</strong><br />
+時給1,500円×月40時間＝月6万円。<br />
+同じ関わりを「役割」として月額固定10万円に変えると、月4万円増。年間48万円の差です。<br />
+しかも仕組み化で稼働が減っても報酬は減らないので、時給換算は上がり続けます。<br />
+この教科書の価格（4,980円）は、移行が1本決まれば初月で約8倍になって返ってくる計算です。</p>
+</blockquote>
+<h3>「まだ実績がない」人の入り方</h3>
+<p>これから狙う人は、ステップ1（時給 or 低額の月額）で入って構いません。<br />
+ただし、<strong>入った瞬間から第2章のマップで全体を見る</strong>こと。<br />
+最初の3ヶ月は「現場を知りながら、次に広げるマスを探す期間」と決めておくと、<br />
+時給の入口が「時給のまま終わる罠」になりません。</p>
+<blockquote class="check">
+<p><strong>✅ 完了チェック：</strong><br />
+□ 自分の今の報酬形態がステップ1〜3のどこか確認した<br />
+□ 「次の一段」に上がるために必要な材料（実績・提案）を1つ書き出した</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-num">第5章</span><span class="ch-title">「見えない価値」を提案に変える</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>現場で見えている改善ネタを「事業の言葉」に翻訳して、提案の下書きを1本作った状態。</p>
+</blockquote>
+<h3>あなたはすでに、コンサルタントが欲しがる情報を持っている</h3>
+<p>現場に入っているウラカタは、実は最強のポジションにいます。</p>
+<ul>
+<li>メンバーがどこでつまずいているか</li>
+<li>どの告知が反応されて、どれがスルーされたか</li>
+<li>退会する人が、その前にどんな行動をしていたか</li>
+</ul>
+<p>外部のコンサルタントが何十万円もらって調査することを、<br />
+あなたは<strong>日常業務の中でタダで見ている</strong>んです。</p>
+<p>なのに多くの人は、それを提案に変えません。<br />
+「気づいてはいるけど、言われてないから」と流してしまう。<br />
+もったいなさすぎます。</p>
+<h3>提案の型：「気づき」を「事業の言葉」に翻訳する</h3>
+<p>提案が通らない人の共通点は、自分目線の言葉で話すことです。<br />
+「もっとこうした方がいいと思います」は、感想であって提案ではありません。</p>
+<p>型はこの3行です。</p>
+<ol>
+<li><strong>事実</strong>：「直近3回のイベント、参加率が下がっています（60%→45%→38%）」</li>
+<li><strong>仮説</strong>：「告知が開催3日前からで、予定を空けられない方が多いようです」</li>
+<li><strong>提案</strong>：「2週間前告知＋前日リマインドの型を作らせてください。次回で参加率50%台に戻すのが目標です」</li>
+</ol>
+<p>事実→仮説→提案。数字が入っていれば、なお強い。<br />
+これだけで「作業の人」の発言が「事業パートナー」の発言に変わります。</p>
+<h3>提案は「通ること」より「出し続けること」</h3>
+<p>正直に言うと、提案は全部通らなくていいんです。</p>
+<p>私が月5万円の案件でXアカウントの運用を始めたときも、<br />
+最初から大きな提案が通ったわけではありません。<br />
+小さな「やってみますね」を積み重ねるうちに、<br />
+「あの人に相談すれば何か出てくる」という認識が育っていきました。</p>
+<p><strong>提案が通った数ではなく、提案が出てくる人だという認識</strong>が、<br />
+「手放せなさ」の正体です。</p>
+<blockquote class="pay">
+<p><strong>💰 ペイ感メモ：</strong><br />
+改善提案を外部コンサルタントに頼めば1本5万〜20万円。<br />
+あなたの提案が1つ採用されて継続率が数%改善すれば、主催者にとって数十万円級のインパクトです。<br />
+「提案が出てくる人」の月額が上がるのは、主催者側から見ても合理的な投資なんです。</p>
+<p><strong>✅ 完了チェック：</strong><br />
+□ 現場で気づいている「誰もやっていない改善ネタ」を3つ書き出した<br />
+□ そのうち1つを「事実→仮説→提案」の3行に落とし、提案の下書きを作った</p>
+</blockquote>
+<hr />
+<hr /></div></details>
+
+</section>
+<div class="bridge"><p>ここまでが「稼ぐ側」の話でした。<br />
+ここからは「頼む側」つまりオーナーの頭の中に入ります。<br />
+アシスタントの方、飛ばさないでください。<br />
+<strong>あなたの提案が通るかどうかは、相手が何に困っているかを知っているかで決まります。</strong><br />
+お祭りの実行委員長が何に悩んでいるかを知っている売り子だけが、右腕になれるんです。</p></div>
+<section class="part" style="--accent:var(--p3)">
+<div class="part-head"><span class="part-title">第3部：オーナー編。抱え込まずに任せる</span></div>
+<details class="ch"><summary><span class="ch-num">第6章</span><span class="ch-title">何を・誰に・どう頼むか</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>「最初に手放す業務」が決まり、依頼文の下書きができた状態。</p>
+</blockquote>
+<h3>「全部自分でやった方が早い」の罠</h3>
+<p>一人で抱えているオーナーの口癖は、だいたいこれです。<br />
+「説明する時間で自分がやった方が早い」</p>
+<p>短期的には正しい。でも、この判断を毎日繰り返した結果が、今の限界です。</p>
+<p>コミュニティは主催者の熱量で回ります。<br />
+その熱量が入金確認とアクセス権限の対応に溶けているなら、<br />
+それはコミュニティ全体の損失です。</p>
+<h3>最初に手放すのは「感情のいらない定型業務」</h3>
+<p>第2章のマップで言うと、<strong>①会員管理と③サポートの一次対応</strong>から手放します。</p>
+<p>理由は2つ。</p>
+<ul>
+<li><strong>判断基準を文書化しやすい</strong>（入金確認のフロー、よくある質問の回答集）</li>
+<li><strong>あなたの個性が要らない</strong>（メンバーは「主催者からの返信」を期待していない領域）</li>
+</ul>
+<p>逆に、コンテンツの中身やメンバーへの熱いメッセージなど、<br />
+「あなたの声」そのものが価値の業務は、最後まで手元に残してください。</p>
+<h3>依頼文の型</h3>
+<p>頼み方で、アシスタントの動きの9割が決まります。</p>
+<ul>
+<li><strong>ゴール</strong>：「入会した方が、迷わず初回イベントに参加できる状態にしたい」</li>
+<li><strong>範囲</strong>：「入金確認→アクセス案内→初回案内までをお任せしたい」</li>
+<li><strong>判断基準</strong>：「イレギュラーはこのラインで私にエスカレーション」</li>
+<li><strong>報酬と期間</strong>：「まず3ヶ月、月〇万円で。3ヶ月後に範囲と報酬を見直したい」</li>
+</ul>
+<p>タスクの羅列ではなく、<strong>ゴールから渡す</strong>。<br />
+これだけで「言われたことだけやる外注さん」ではなく<br />
+「意図を汲んで動くパートナー」が育ちます。</p>
+<blockquote class="pay">
+<p><strong>💰 ペイ感メモ：</strong><br />
+オーナーが定型業務に使っている時間が月20時間なら、あなたの時給5,000円換算で月10万円分。<br />
+月数万円でアシスタントに任せれば、浮いた20時間でコンテンツや集客という「主催者にしかできない仕事」ができます。<br />
+手放すことは支出ではなく、リソースの組み替えです。</p>
+<p><strong>✅ 完了チェック：</strong><br />
+□ 「最初に手放す業務」を1つ決めた<br />
+□ ゴール・範囲・判断基準・報酬の4点で、依頼文の下書きを作った</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-num">第7章</span><span class="ch-title">指示の出し方・報酬の基準・属人化させない体制</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>任せた後に「こんなはずじゃなかった」を防ぐ、運用のルールが決まった状態。</p>
+</blockquote>
+<h3>業務委託に「察してほしい」は通じない</h3>
+<p>社員と違って、業務委託のアシスタントに教育義務はありません。<br />
+だからこそ、<strong>最初の期待値のすり合わせ</strong>がすべてです。</p>
+<ul>
+<li>返信スピードの目安（即レスを求めるのか、24時間以内でいいのか）</li>
+<li>稼働時間帯（夜間・土日は対応外と明記する）</li>
+<li>「ここから先は勝手に判断していい」ライン</li>
+</ul>
+<p>これを曖昧にしたまま「なんか違う」と感じるのは、頼み方の問題です。</p>
+<h3>報酬の基準</h3>
+<ul>
+<li>分単位のタスクを時給で管理するのは、双方にとって消耗です。<br />
+<strong>業務のまとまり単位で、月額に丸める</strong>のが基本</li>
+<li>相場感：定型業務中心なら月3〜5万円、サポート＋発信＋イベントまで任せるなら月10万円前後が1つの目安</li>
+<li>ケチると失敗します。安く叩いた外注は定着せず、採用と引き継ぎのコストの方が高くつきます</li>
+</ul>
+<h3>属人化させない仕組み</h3>
+<p>「その人がいないと分からない」は、アシスタント本人にとってもリスクです<br />
+（休めない・辞められない・引き継げない）。</p>
+<p>対策はシンプルで、<strong>やりながらマニュアルを残してもらう</strong>こと。<br />
+今はAIがあるので、作業の録画や箇条書きメモを渡せば手順書は一瞬で作れます。<br />
+「マニュアル化も業務のうち」と最初に依頼に含めておくのがコツです。</p>
+<blockquote class="check">
+<p><strong>✅ 完了チェック：</strong><br />
+□ 期待値3点セット（返信目安・稼働時間帯・判断ライン）を言語化した<br />
+□ 「マニュアル化も業務に含める」を依頼文に足した</p>
+</blockquote>
+<hr /></div></details>
+
+</section>
+<section class="part" style="--accent:var(--p4)">
+<div class="part-head"><span class="part-title">第4部：仕組み化編。長く続けるための技術</span></div>
+<details class="ch"><summary><span class="ch-num">第8章</span><span class="ch-title">AIで運営業務を仕組み化する</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>自分の業務から「今週AIで仕組み化する1つ」を選び、実際に試す準備ができた状態。</p>
+</blockquote>
+<h3>今、コミュニティ運営で一番差がつく場所</h3>
+<p>第1部からずっと「作業の人から仕組みの人へ」と言ってきました。<br />
+その移行を一気に進めてくれるのがAIです。</p>
+<p>私が実際にやってきた仕組み化を、効果の大きい順に並べます。</p>
+<p><strong>① 月次レポート：丸2日 → 10分</strong></p>
+<p>参加データ・アンケート・売上をAIに渡して、<br />
+決まったフォーマットのレポートに整形させる。<br />
+毎月16時間かかっていた作業が10分になりました。<br />
+（プロンプトの型は特典4でそのまま配布します）</p>
+<p><strong>② 入会〜参加導線の全自動化（UTAGE）</strong></p>
+<p>決済→アクセス案内→初回案内→リマインドを<br />
+UTAGEで一本化して、手動対応をゼロに。<br />
+これは自分の時短で終わらず、<strong>構築スキルとして1案件10万円前後で提案できる</strong>仕事になります。</p>
+<p><strong>③ 配信文・告知文のAI作成</strong></p>
+<p>過去の反応が良かった配信をAIに学習させて、告知文の下書きを量産。<br />
+「書く人」から「配信設計を持っている人」に変わります。</p>
+<p><strong>④ サポートBot</strong></p>
+<p>よくある質問と回答集をAIに渡して、一次対応を自動化。<br />
+主催者の手間が激減するので、オーナーへの提案としても喜ばれます。</p>
+<h3>大事なのは「時短」で止めないこと</h3>
+<p>ここが分かれ道です。</p>
+<p>月次レポートが10分になったとき、<br />
+浮いた時間をただ休憩に使うのが「作業の人」。<br />
+<strong>浮いた時間で数字を読んで、改善提案を1本出すのが「仕組みの人」</strong>です。</p>
+<p>AIはあなたの仕事を奪いません。<br />
+ただし、「AIで置き換えられる関わり方しかしていない人」の仕事は置き換えます。<br />
+自分の作業を自分でAI化して、空いた手で次の役割を取りに行く。<br />
+この動きができる人が、いちばん手放せなくなります。</p>
+<blockquote class="pay">
+<p><strong>💰 ペイ感メモ：</strong><br />
+月次レポート16時間→10分は、時給1,500円換算で毎月約2.4万円分、年間約29万円分の時間が戻る計算。<br />
+UTAGE構築の提案が1本通れば10万円前後。<br />
+この章の内容だけで、教科書代の回収ラインは何周もします。</p>
+<p><strong>✅ 完了チェック：</strong><br />
+□ ①〜④から「今週試す1つ」を選んだ<br />
+□ 浮いた時間で出す「次の提案」を仮決めした</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-num">第9章</span><span class="ch-title">燃え尽きないためのバウンダリー</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>長く続けるための「境界線」を1つ決めた状態。</p>
+</blockquote>
+<h3>コミュニティ運営は「続けること」が一番難しい</h3>
+<p>熱量の高いコミュニティほど、運営側は燃え尽きやすい。<br />
+メンバーの深夜の相談に応え続けて疲弊するアシスタント、<br />
+休日も通知が気になり続ける主催者。私は両方見てきました。</p>
+<p>長く続けるために、バウンダリー（境界線）を仕組みにします。</p>
+<ul>
+<li><strong>対応時間を宣言する</strong>：「平日10-17時、返信は24時間以内」を、プロフィールや案内に明記。宣言していないルールは、ないのと同じです</li>
+<li><strong>個別対応の受け口を絞る</strong>：質問はDMではなく質問チャンネルへ。個別相談は枠を設ける。「どこでも受ける」は優しさではなく、破綻の予約です</li>
+<li><strong>感情労働に値段をつける</strong>：メンタルフォローの比重が高い案件は、その分を報酬に反映する。無償の感情労働は必ず枯れます</li>
+</ul>
+<h3>お客様の声を「ガソリン」として蓄積する</h3>
+<p>もう1つ、続けるための技術があります。<br />
+<strong>コミュニティの価値を可視化して、定期的に見えるようにする</strong>ことです。</p>
+<p>メンバーの成果報告、感謝のメッセージ、Before/After。<br />
+これらを流れて消えるままにせず、フォーマットに蓄積していく（特典3）。</p>
+<p>これは主催者のモチベーション維持になり、<br />
+募集時のセールス素材になり、<br />
+そしてあなたの「この仕事には意味がある」を支えてくれます。</p>
+<blockquote class="check">
+<p><strong>✅ 完了チェック：</strong><br />
+□ 対応時間・受け口・感情労働のうち、今の自分に必要な境界線を1つ決めた<br />
+□ お客様の声の蓄積場所を決めた（スプレッドシート1枚でOK）</p>
+</blockquote>
+<hr /></div></details>
+
+</section>
+<section class="part" style="--accent:var(--end)">
+<div class="part-head"><span class="part-title">終章・特典・付録</span></div>
+<div class="group-intro"><p>ここまで読んでくれたあなたへ。</p>
+<p>まず、完走おめでとうございます。</p>
+<p>最後に、一番大事な話をします。</p>
+<p>この教科書ではずっと、業務マップ、報酬設計、仕組み化と、<br />
+「構造」の話をしてきました。</p>
+<p>でも、コミュニティ運営の本質は構造の逆側にあります。</p>
+<p>コミュニティは、人が集まる場です。<br />
+入会した人の不安に気づいて一言添える。<br />
+イベントで固まっている人に声をかける。<br />
+主催者が疲れていそうな日に、先回りして負担を減らす。</p>
+<p><strong>仕組みは、この「人への向き合い」に時間を使うためにあります。</strong></p>
+<p>AIで月次レポートが10分になっても、<br />
+メンバーの「最近ログインが減った」に気づいて動くのは人です。<br />
+そしてコミュニティの主催者が本当に手放せないのは、<br />
+作業が速い人ではなく、<strong>場の人たちを一緒に見てくれる人</strong>です。</p>
+<p>読む前のあなたは「作業をどう効率化するか」を考えていたかもしれません。<br />
+読み終えた今は、こう考えてみてください。</p>
+<p><strong>効率化で浮いた時間を、誰に向けるか。</strong></p>
+<p>全部やらなくて大丈夫です。この3つから1つだけ選んでください。</p>
+<ul>
+<li>業務分担マップで、自分の現在地に○を付ける（第2章）</li>
+<li>「事実→仮説→提案」の3行で、提案の下書きを1本作る（第5章）</li>
+<li>今週、AIで仕組み化する業務を1つ試す（第8章）</li>
+</ul>
+<p>1つ動けたら、あなたはもう「手放せない側」に向かって歩き始めています。</p>
+<p>応援しています。</p>
+<p>あやねえ</p>
+<hr /></div>
+<details class="ch"><summary><span class="ch-title">特典の受け取り方</span></summary>
+<div class="ch-content"><ol>
+<li><strong>コミュニティ運営 業務分担マップ</strong>（すり合わせ用シート）</li>
+<li><strong>進行管理・タスク台帳テンプレート</strong>（スプレッドシート）</li>
+<li><strong>お客様の声 整理・蓄積フォーマット</strong></li>
+<li><strong>月次レポートAI化プロンプトセット</strong></li>
+<li><strong>報酬移行 提案文テンプレート</strong></li>
+</ol>
+<p>LINE（@○○）に登録 → 合言葉「○○○」で全特典をお送りします。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-num">最後に</span><span class="ch-title">この先の学びのこと</span></summary>
+<div class="ch-content"><p>この教科書の元になっているのは、私が準備している<br />
+「コミュニティ運営マスター講座」（フル版）の体系です。</p>
+<p>Brainが「型と地図」だとすると、フル講座は<br />
+個別の案件事情に合わせたフィードバックまで含めた実践版になります。</p>
+<p>また、私が主宰する秘書力マスター講座では、<br />
+コミュニティ運営を含むウラカタ業務全般を、審査制・少人数で深く扱っています。</p>
+<p>「個別に見てほしい」と思ったとき、<br />
+募集のタイミングが合えば、覗いてみてください。<br />
+LINEに登録しておいてもらえれば、優先的にご案内します。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-num">付録</span><span class="ch-title">巻頭に戻れる最終チェックリスト</span></summary>
+<div class="ch-content"><blockquote>
+<p>□ 「売り子」と「実行委員の右腕」のどちら側か自覚した（第1章）<br />
+□ 全業務マップで現在地と次のマスを特定した（第2章）<br />
+□ 曖昧なまま拾っている業務を書き出し、線を引くタイミングを決めた（第3章）<br />
+□ 報酬3ステップの「次の一段」を決めた（第4章）<br />
+□ 「事実→仮説→提案」で提案の下書きを1本作った（第5章）<br />
+□ 【オーナー】最初に手放す業務と依頼文を作った（第6章）<br />
+□ 【オーナー】期待値3点セットを言語化した（第7章）<br />
+□ 今週AIで仕組み化する業務を1つ選んだ（第8章）<br />
+□ 燃え尽きないための境界線を1つ決めた（第9章）</p>
+</blockquote>
+<hr /></div></details>
+
+</section>
+  <footer>素材：旧No.02下書き＋コミュニティ運営マスター講座＋あやねえ実例｜しょーてぃ式＋迫さん9技術準拠</footer>
+</div>
+</body>
+</html>

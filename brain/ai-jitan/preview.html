@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="robots" content="noindex, nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI×時短・家事育児の教科書｜本文プレビュー</title>
+<style>
+  :root {
+    --ink: #2b2b33; --ink2: #55555f; --sub: #6b6b78;
+    --bg: #f7f6f3; --card: #ffffff; --line: #e8e6e0;
+    --p1: #c0563b; --p2: #d99a2b; --p3: #3e7c6f; --p4: #4a6fa5;
+    --free: #8a7ab5; --end: #9a5b7d;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", sans-serif;
+    background: var(--bg); color: var(--ink); line-height: 1.9;
+    padding: 40px 16px 80px;
+  }
+  .wrap { max-width: 780px; margin: 0 auto; }
+  header { text-align: center; margin-bottom: 12px; }
+  .label {
+    display: inline-block; font-size: 12px; letter-spacing: 2px; color: var(--sub);
+    border: 1px solid var(--line); background: var(--card); border-radius: 99px;
+    padding: 4px 16px; margin-bottom: 14px;
+  }
+  h1 { font-size: clamp(24px, 5vw, 32px); letter-spacing: 1px; margin-bottom: 8px; }
+  .subtitle { font-size: clamp(12px, 3vw, 14px); color: var(--sub); margin-bottom: 6px; }
+  .meta { font-size: 12px; color: var(--sub); }
+  .toolbar { text-align: center; margin: 18px 0 28px; }
+  .toolbar button {
+    font-family: inherit; font-size: 12.5px; color: var(--sub);
+    background: var(--card); border: 1px solid var(--line); border-radius: 99px;
+    padding: 7px 18px; margin: 0 4px; cursor: pointer;
+  }
+  .toolbar button:hover { color: var(--ink); border-color: #c9c6bd; }
+
+  .part {
+    background: var(--card); border: 1px solid var(--line); border-radius: 14px;
+    margin-bottom: 18px; overflow: hidden;
+  }
+  .part-head {
+    padding: 15px 22px 13px; border-bottom: 1px solid var(--line);
+    border-left: 6px solid var(--accent);
+  }
+  .part-title { font-size: clamp(15px, 3.6vw, 17.5px); font-weight: bold; }
+  .group-intro { padding: 18px 24px 6px; font-size: 14.5px; }
+
+  details.ch { border-top: 1px solid var(--line); }
+  details.ch:first-of-type { border-top: none; }
+  details.ch summary {
+    list-style: none; cursor: pointer; display: flex; align-items: center; gap: 12px;
+    padding: 14px 22px; font-weight: bold; font-size: clamp(13.5px, 3.4vw, 15.5px);
+    transition: background .15s;
+  }
+  details.ch summary::-webkit-details-marker { display: none; }
+  details.ch summary:hover { background: color-mix(in srgb, var(--accent) 5%, #fff); }
+  details.ch summary::after {
+    content: "＋"; margin-left: auto; color: var(--accent);
+    font-weight: normal; flex-shrink: 0;
+  }
+  details.ch[open] summary::after { content: "－"; }
+  details.ch[open] summary { background: color-mix(in srgb, var(--accent) 7%, #fff); }
+  .ch-num {
+    flex-shrink: 0; font-size: 11.5px; font-weight: bold; color: #fff;
+    background: var(--accent); border-radius: 6px; padding: 2px 10px; white-space: nowrap;
+  }
+  .ch-content { padding: 6px 24px 26px; font-size: 14.5px; }
+
+  .ch-content h3, .group-intro h3 {
+    font-size: 15.5px; margin: 26px 0 10px; padding-left: 10px;
+    border-left: 4px solid var(--accent);
+  }
+  .ch-content p, .group-intro p { margin: 14px 0; }
+  .ch-content ul, .ch-content ol, .group-intro ul, .group-intro ol { margin: 14px 0 14px 1.5em; }
+  .ch-content li, .group-intro li { margin: 4px 0; }
+  .ch-content hr, .group-intro hr { border: none; border-top: 1px dashed var(--line); margin: 22px 0; }
+  .ch-content strong, .group-intro strong {
+    background: linear-gradient(transparent 62%, color-mix(in srgb, var(--accent) 28%, #fff) 62%);
+  }
+  .ch-content pre, .group-intro pre {
+    background: #f4f2ec; border: 1px solid var(--line); border-radius: 10px;
+    padding: 14px 16px; font-size: 12.5px; line-height: 1.7; overflow-x: auto;
+    font-family: "Hiragino Kaku Gothic ProN", monospace; margin: 14px 0;
+  }
+  .ch-content table, .group-intro table {
+    border-collapse: collapse; font-size: 12.5px; margin: 14px 0; width: 100%;
+  }
+  .ch-content th, .ch-content td, .group-intro th, .group-intro td {
+    border: 1px solid var(--line); padding: 7px 10px; text-align: left; vertical-align: top;
+  }
+  .ch-content th, .group-intro th { background: #faf9f6; }
+
+  blockquote {
+    border-radius: 10px; padding: 12px 16px; margin: 16px 0; font-size: 13.5px;
+    border: 1px solid var(--line); background: #faf9f6;
+  }
+  blockquote p { margin: 4px 0 !important; }
+  blockquote.goal  { background: #f3f0fa; border-color: #ddd3ef; }
+  blockquote.pay   { background: #fdf6e9; border-color: #f0e2c4; }
+  blockquote.check { background: #eef6f0; border-color: #d3e8d9; }
+  blockquote.imgnote { background: #f6f3ee; border-style: dashed; color: #8a8578; font-size: 12.5px; }
+
+  .bridge {
+    text-align: center; color: var(--ink2); font-size: 13.5px; margin: 4px 8px 24px;
+    padding: 6px 16px;
+  }
+  .bridge::before { content: "▼"; display: block; font-size: 11px; color: #c9c6bd; margin-bottom: 4px; }
+  .bridge p { margin: 3px 0; }
+
+  footer { text-align: center; color: #a5a29a; font-size: 11px; margin-top: 40px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="label">Brain 本文プレビュー｜見出しをタップで開閉</div>
+    <h1>AI×時短・家事育児の教科書</h1>
+    <p class="subtitle">〜3児ママが「もっと眠りたい」を本気で叶えた、生活まるごとAI時短の全部〜</p>
+    <p class="meta">著者：あやねえ（水野彩香）｜980円（先行3日間）→ 1,980円 → 最終2,980円｜約12,000字</p>
+  </header>
+  <div class="toolbar">
+    <button onclick="document.querySelectorAll('details.ch').forEach(d=>d.open=true)">すべて開く</button>
+    <button onclick="document.querySelectorAll('details.ch').forEach(d=>d.open=false)">すべて閉じる</button>
+  </div>
+<section class="part" style="--accent:var(--free)">
+<div class="part-head"><span class="part-title">無料部分（販売ページ）</span></div>
+<div class="group-intro"><hr />
+<p>朝起きてから夜寝るまで、ずっと何かに追われていませんか？</p>
+<p>子どもの送り迎え、ごはん、洗濯、学校のプリント、<br />
+習い事のスケジュール、自分の仕事。</p>
+<p>頭の中はいつも「次にやること」でいっぱいで、<br />
+「自分の時間なんて1秒もない」。</p>
+<p>数年前の私が、まさにそうでした。</p>
+<p>そしてこのまま放置すると、あなたは<br />
+「もっと効率よくやらなきゃ」と自分を責めながら、<br />
+毎日同じ献立の悩み、同じプリントの確認、同じ声かけを、<br />
+これから何年も繰り返すことになります。</p>
+<p>でも先に言わせてください。<br />
+<strong>時間がないのは、あなたの努力不足ではありません。</strong></p>
+<hr /></div>
+<details class="ch" open><summary><span class="ch-title">「時間がない」の正体は、作業じゃなく「考えごと」</span></summary>
+<div class="ch-content"><p>家事や育児って、作業そのものより<br />
+<strong>「考えごと」に消耗している</strong>ことに気づいていますか？</p>
+<ul>
+<li>今日の晩ごはん、何にしよう</li>
+<li>遠足っていつだっけ。お弁当いるんだっけ</li>
+<li>習い事の振替、いつにしよう</li>
+<li>明日の持ち物、確認したっけ</li>
+</ul>
+<p>パソコンにたとえると、頭の中でタブが開きっぱなしの状態です。<br />
+1つ1つは小さいのに、開いているだけでメモリを食い続ける。<br />
+夜、疲れ果てているのに「何もしてない気がする」のは、<br />
+このタブたちが1日中、頭の中で回り続けているからです。</p>
+<p>世の中の時短術は「作業を速くする」話ばかりです。<br />
+でも本当に効くのは、<strong>「考えごと」ごとAIに渡して、タブを閉じること。</strong></p>
+<p>この教科書は、家事・育児まわりの「考えごと」を<br />
+AIの仕組みに変えていく手順を、コピペできるプロンプトつきで全部渡す1冊です。</p>
+<blockquote class="imgnote">
+<p>🖼️ <strong>【アイキャッチ：image02】</strong>（「考えごとの正体」の直後）<br />
+内容：脳内タブの図解。頭のシルエットの中にブラウザのタブがずらり（献立・プリント・持ち物・振替・買い物…）→AIに渡してタブが閉じていく対比<br />
+画像内の文言：「『時間がない』の正体は、作業じゃなく考えごと」「開きっぱなしの脳内タブを、AIに渡して閉じる」</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">一度、働きすぎて病んで辞めました</span></summary>
+<div class="ch-content"><p>私は3人の子ども（双子＋1人）を育てながら仕事をしています。</p>
+<p>オンライン秘書として月収100万円を達成した頃、正直、毎日がしんどかった。<br />
+朝から夜中までPCに向かい、家族旅行に行ってもずっとパソコンを見ていて、<br />
+一度それで病んで、仕事を辞めてしまったこともあります。</p>
+<p>「がんばる」だけでは、時間は増えなかったんです。</p>
+<p>今の私は、稼働1日3時間ほど。<br />
+家族旅行中にパソコンを開くこともなくなり、<br />
+子どもの中学受験のサポートにも、ちゃんと向き合えています。</p>
+<p>何が変わったのか。</p>
+<p>仕事のやり方だけではありません。<br />
+<strong>「家事・育児まわりの考えごと」まで、AIに任せた</strong>ことです。</p>
+<p>献立、買い物、プリント管理、学習サポート、家族のスケジュール。<br />
+「名もなき家事」と呼ばれる、全部自分の頭で抱えていたものを、仕組みに変えました。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">ゴールをはっきり約束します</span></summary>
+<div class="ch-content"><p>この教科書のB地点（読み終えて実践した状態）はこうです。</p>
+<p><strong>今夜の献立をAIに出してもらう体験を1回やり切り、<br />
+NotebookLMに子どものプリントを1枚入れて「明日の持ち物は？」と聞けた状態。<br />
+「全部自分の頭で抱える」のをやめる最初の仕組みが、動き始めている状態</strong></p>
+<p>「AIが分かる」でも「時短の知識がつく」でもありません。<br />
+読んだ日の夜から、あなたの頭のタブが1つ閉じる。そこまで連れていきます。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">なぜ私がこれを書けるのか</span></summary>
+<div class="ch-content"><p>あやねえ（水野彩香）と申します。</p>
+<ul>
+<li>3児の母（双子＋1人）。子どもの中学受験サポートも進行中</li>
+<li>大阪大学卒業後、任天堂に10年勤務。独立後はオンライン秘書として6年</li>
+<li>働きすぎて病んで辞めた経験あり。だから「がんばる時短」を信用していません</li>
+<li>現在は稼働1日3時間ほどで複数の事業に関わり、大手AIマーケ講座の特別講師も務めています</li>
+<li>AIの専門家としてではなく、<strong>生活が回らなくなった当事者として</strong>AIに頼り始めた側の人間です</li>
+</ul>
+<p>「AIすごい」の話はしません。<br />
+「AIでラクになった生活」の話だけをします。</p>
+<blockquote class="imgnote">
+<p>🖼️ <strong>【アイキャッチ：image03】</strong>（著者紹介の直後）<br />
+内容：あやねえのビフォーアフター図解。左「朝から夜中までPC・旅行先でも仕事・病んで退職」→右「稼働1日3時間・旅行でPC開かない・受験サポートに向き合える」<br />
+画像内の文言：「がんばる時短では、変わらなかった」「変わったのは『考えごと』をAIに任せてから」</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">3つの実例</span></summary>
+<div class="ch-content"><p><strong>実例1：お弁当忘れガチ泣き事件（この本を書いた原点）</strong></p>
+<p>一度、子どもの遠足のお弁当を入れ忘れて、ガチ泣きされたことがあります。<br />
+プリントは読んだはずなのに、頭のタブが多すぎて抜けた。<br />
+「気をつける」では、もう防げないと悟りました。</p>
+<p>それ以来、子どものプリント・お便り・案内は全部NotebookLMに入れて、<br />
+「明日の持ち物は？」「お弁当いる？」と聞けば一瞬で答えが返る仕組みにしました。<br />
+以来、持ち物事故はゼロです。</p>
+<p><strong>実例2：毎日の「何作ろう」が消えた</strong></p>
+<p>冷蔵庫の中身をAIに伝えるだけで、献立と作り方と買い足しリストが出ます。<br />
+毎日15〜30分の「考える時間」が、ゼロになりました。<br />
+週末に1週間分の献立と買い物リストをまとめて出すようになってからは、<br />
+平日の夕方の憂鬱そのものが消えました。</p>
+<p><strong>実例3：「なんでわからないの？」と言わなくなった</strong></p>
+<p>子どもの勉強のつまずきをAIに渡すと、<br />
+別のたとえ話で、何回でも、イライラせずに説明してくれます。<br />
+親が「全部教える人」を降りて「一緒に画面を見る人」になれたことが、<br />
+受験サポートで一番大きな変化でした。</p>
+<p>3つに共通するのは、<strong>私ががんばるのをやめて、仕組みに任せた</strong>ことです。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">「でも自分には難しいんじゃ...」という方へ</span></summary>
+<div class="ch-content"><ul>
+<li>
+<p><strong>AIを使ったことがなくても大丈夫</strong><br />
+  この本のプロンプト（AIへの指示文）は、全部コピペで動きます。<br />
+  スマホの無料AIアプリ1つで、今日から始められます。</p>
+</li>
+<li>
+<p><strong>機械オンチでも大丈夫</strong><br />
+  難しい設定・連携は一切出てきません。<br />
+  一番難しい操作が「NotebookLMにファイルを入れる」で、これはLINEで写真を送るのと同レベルです。</p>
+</li>
+<li>
+<p><strong>子どもが小さくても、大きくても大丈夫</strong><br />
+  プリント管理は保育園児〜中学生まで、学習サポートは小学生〜受験生まで、<br />
+  年齢に合わせた使い方を書いています。</p>
+</li>
+<li>
+<p><strong>「AIに家庭のことを任せるのは手抜きでは…」という方へ</strong><br />
+  任せるのは「考えごと」であって、家族への愛情ではありません。<br />
+  むしろタブが閉じた分、子どもの顔を見る余裕が生まれます。それがこの本のゴールです。</p>
+</li>
+</ul>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">「他のAI本と何が違うの？」</span></summary>
+<div class="ch-content"><table>
+<thead>
+<tr>
+<th></th>
+<th>一般のAI活用本</th>
+<th>時短・家事本</th>
+<th>この教科書</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>扱う領域</td>
+<td>仕事のAI活用</td>
+<td>手際・収納・作り置き</td>
+<td>生活の「考えごと」のAI化</td>
+</tr>
+<tr>
+<td>前提</td>
+<td>ビジネスパーソン</td>
+<td>がんばれる人</td>
+<td>疲れ果てたワーママ・パパ</td>
+</tr>
+<tr>
+<td>具体度</td>
+<td>ツール紹介で終わりがち</td>
+<td>根性が必要</td>
+<td>コピペプロンプト＋実話つき</td>
+</tr>
+<tr>
+<td>読後</td>
+<td>「すごいね」で終わる</td>
+<td>3日で挫折</td>
+<td>今夜、献立のタブが1つ閉じる</td>
+</tr>
+</tbody>
+</table>
+<p>「AI×生活」に振り切った教材は、ほとんどありません。<br />
+AI教材は仕事の話ばかり、家事本はがんばる話ばかり。<br />
+その間の「一番困っている場所」に、この本を置きます。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">価格について</span></summary>
+<div class="ch-content"><p>通常価格は1,980円からスタートします。<br />
+プロンプトの追加・実践事例の反映に合わせて、最終的には<strong>2,980円まで値上げ予定</strong>です。<br />
+<strong>先行3日間だけ、980円</strong>で購入できます。</p>
+<p>正直、この内容はもっと高くしてもいいと思っています。</p>
+<p>毎日の献立を考える時間が15分だとすると、それだけで月7.5時間。<br />
+時給2,000円で換算すれば、月1.5万円分の思考リソースです。<br />
+献立のタブが閉じるだけで、初月で回収がとっくに終わる計算になります。</p>
+<p>でもこの本は、Brainシリーズの中で「一番裾野の広い入口」にしたいので、<br />
+ワンコイン＋αから始められる価格にしました。</p>
+<blockquote class="imgnote">
+<p>🖼️ <strong>【アイキャッチ：image04】</strong>（価格セクション直後）<br />
+内容：価格の階段図。980円（先行3日間）→ 1,980円（通常）→ 2,980円（最終）の3段<br />
+画像内の文言：「先行3日間 980円」→「通常 1,980円」→「最終 2,980円まで値上げ予定」＋「献立の考えごと1ヶ月分（約1.5万円相当）より、ずっと安い」</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">特典（今日から使えるコピペセット）</span></summary>
+<div class="ch-content"><ul>
+<li>
+<p>【特典1】<strong>生活シーン別プロンプト集30</strong><br />
+  献立・買い物・名もなき家事の棚卸し・学習サポート・声かけ・スケジュール。<br />
+  本文で使った全プロンプト＋応用版を、コピペ用にまとめて配布します。</p>
+</li>
+<li>
+<p>【特典2】<strong>NotebookLM「家族の情報まとめ」セットアップテンプレート</strong><br />
+  何を・どう入れればいいかをそのまま真似できる構成テンプレート。<br />
+  お弁当事件を二度と起こさないための、わが家の実物構成です。</p>
+</li>
+<li>
+<p>【特典3】<strong>1週間献立×買い物リスト ワークシート</strong><br />
+  週末15分で平日5日分の「考えごと」を先に終わらせるためのシート。</p>
+</li>
+</ul>
+<blockquote class="imgnote">
+<p>🖼️ <strong>【アイキャッチ：image05】</strong>（特典セクションの直後）<br />
+内容：特典3点の一覧図解。アイコン付きカード<br />
+画像内の文言：「購入者特典 全3点」「①生活シーン別プロンプト集30 ②NotebookLMセットアップテンプレ ③1週間献立×買い物リストシート」「読んだ日の夜から使えます」</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">この教科書が向いていない人</span></summary>
+<div class="ch-content"><ul>
+<li>すでに家事育児を完璧に仕組み化できている人</li>
+<li>「AIの仕組みや最新モデル」を学びたい人（技術の話はしません）</li>
+<li>読むだけで、今夜1回も試す気がない人</li>
+</ul>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">購入後のあなたへ</span></summary>
+<div class="ch-content"><p>購入直後：「時間がない」の正体が「考えごと」だったと分かります。<br />
+自分を責める必要がなかったことに、まず気づいてください。</p>
+<p>今夜：冷蔵庫の中身で献立プロンプトを1回試します。<br />
+「考えなくて済んだ」という初めての感覚があるはずです。</p>
+<p>1週間後：NotebookLMに子どもの情報が入り始めて、<br />
+「明日って何かあったっけ？」の不安が消え始めます。</p>
+<p>1ヶ月後：献立・プリント・スケジュールのタブが閉じて、<br />
+夜に「あれ、今日ちょっと余裕あったな」という日が出てきます。<br />
+その余白が、この本の本当の商品です。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-title">さあ、有料エリアへ</span></summary>
+<div class="ch-content"><p>「もっと頑張らなきゃ」と自分を責める毎日を、続けますか？</p>
+<p>それとも、頭のタブをAIに渡して、<br />
+今夜から「考えなくていい生活」を始めますか？</p>
+<p>価格は1,980円から、最終的に2,980円まで値上げ予定。<br />
+先行3日間は980円です。</p>
+<hr />
+<p><strong>▼ 続きを読む（先行3日間 980円 → 通常1,980円）</strong></p>
+<hr />
+<hr />
+<hr /></div></details>
+
+</section>
+<div class="bridge">ここから有料エリア</div>
+<section class="part" style="--accent:#8a8a94">
+<div class="part-head"><span class="part-title">はじめに（全体マップ・読み方ガイド）</span></div>
+<div class="group-intro"><p>この教科書を手に取ってくれて、ありがとうございます。</p>
+<p>先に、この教科書が「誰の毎日を変えるための本」なのかをはっきりさせておきます。</p>
+<p><strong>仕事と家事育児に追われて、頭の中が常に「次にやること」でいっぱい。<br />
+AIに興味はあるけど、仕事のAI活用の話はピンとこない…そんな人のための本です。</strong></p>
+<p>パパでも、おじいちゃんおばあちゃんと同居の家庭でも、もちろん大丈夫です。<br />
+「家庭の考えごとを一手に引き受けている人」全員に向けて書きました。</p>
+<p>この本で覚えてほしい言葉は、たった1つです。</p>
+<p><strong>タブを閉じる。</strong></p>
+<p>献立、プリント、持ち物、振替、買い物。<br />
+頭の中で開きっぱなしの小さなタブたちを、1つずつAIに渡して閉じていく。<br />
+それがこの教科書でやることの全部です。</p>
+<p>まず全体の地図を渡してから、始めましょう。</p>
+<hr />
+<h3>全体マップ（ゴールまでの一本道）</h3>
+<pre><code>【第1部 ごはん・家事編】毎日いちばん重いタブから閉じる
+第1章 献立と買い物をAIに丸投げする
+第2章 「名もなき家事」の棚卸し
+　　└ 台所のタブが閉じた。次は子ども関係のタブ ★
+
+【第2部 子ども・学校編】「うっかり」を仕組みでなくす
+第3章 プリント・持ち物のタブを閉じる（NotebookLM）
+第4章 勉強・受験サポートにAIを使う
+第5章 習い事・家族スケジュールの司令塔をつくる
+　　└ 家事と子どもの仕組みができた。最後は自分の番 ★
+
+【第3部 自分の時間編】浮いた時間を、自分に返す
+第6章 完璧を手放す「仕組み化」マインド
+第7章 浮いた時間を「自分のため」に使う
+
+【終章】時短の先にあるのは「時間」じゃなく「余白」
+</code></pre>
+<blockquote class="imgnote">
+<p>🖼️ <strong>【アイキャッチ：image06】</strong>（有料部分・全体マップの直後）<br />
+内容：全体マップの図解版。タブが1部ごとに閉じていくロードマップ図<br />
+画像内の文言：「第1部 ごはん・家事 → 第2部 子ども・学校 → 第3部 自分の時間 → 終章 余白」「重いタブから、1つずつ閉じる」</p>
+</blockquote>
+<p><strong>読み方ガイド：</strong></p>
+<ul>
+<li>順番に読むのがおすすめですが、<strong>一番つらい場所から読んでOK</strong>です</li>
+<li>夕方の「何作ろう」が一番つらい人 → 第1章から</li>
+<li>学校プリントと持ち物の不安が一番つらい人 → 第3章から</li>
+<li>「そもそも私、休んじゃいけない気がする」人 → 先に第6章を読んでください</li>
+</ul>
+<p>最後まで読み終えた方のために、巻末に特典の受け取り方があります。<br />
+プロンプト集30は、読み終えたその日から使える完走のご褒美です。</p>
+<hr /></div>
+</section>
+<section class="part" style="--accent:var(--p1)">
+<div class="part-head"><span class="part-title">第1部：ごはん・家事編。毎日いちばん重いタブから閉じる</span></div>
+<details class="ch"><summary><span class="ch-num">第1章</span><span class="ch-title">献立と買い物をAIに丸投げする</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>「今日の夕食の献立」をAIに出してもらう体験を1回完了し、毎日15〜30分の「考える時間」を今日からゼロにした状態。</p>
+</blockquote>
+<h3>なぜ献立から始めるのか</h3>
+<p>理由はシンプルで、<strong>毎日発生する考えごとの中で、一番重いタブ</strong>だからです。</p>
+<p>「今日の晩ごはん何にしよう」は、1日1回、365日、必ず開くタブです。<br />
+しかも夕方、一番疲れている時間帯に開く。<br />
+ここが閉じると、生活の体感が一番大きく変わります。</p>
+<p>そして、AIが一番得意な仕事でもあります。<br />
+条件を伝えて、選択肢を出してもらう。これだけです。</p>
+<h3>① 冷蔵庫の中身から献立を出す</h3>
+<p>冷蔵庫を開けて、あるものをそのままAIに伝えてください。</p>
+<p>▼ プロンプト例（コピペして、食材だけ書き換え）</p>
+<pre><code>冷蔵庫に〔鶏もも肉・卵・キャベツ・玉ねぎ・豆腐〕があります。
+30分以内で作れる、子ども（小学生）も食べやすい夕食メニューを3案、
+材料の使い切りも意識して提案して。買い足すならその分も教えて。
+</code></pre>
+<p>ポイントは3つです。</p>
+<ul>
+<li><strong>3案出してもらう</strong>：1案だと「うーん」となったとき詰まる。3案から選ぶのは一瞬</li>
+<li><strong>制約を入れる</strong>：「30分以内」「子どもが食べやすい」など、わが家の条件を最初から渡す</li>
+<li><strong>買い足しも聞く</strong>：「あと1品足りない」まで先回りしてもらう</li>
+</ul>
+<p>最初の1回は「へえ、ちゃんと出るんだ」で構いません。<br />
+大事なのは、<strong>今夜1回やること</strong>です。</p>
+<h3>② 1週間分をまとめて出す（平日の憂鬱が消える）</h3>
+<p>毎日出すのに慣れたら、次は週末にまとめて出します。</p>
+<p>▼ プロンプト例</p>
+<pre><code>来週の平日5日分の夕食献立を作って。
+条件：子ども3人（小学生・中学生）がいる、30分以内で作れるもの、
+食材が重ならないように、週末にまとめて買い物できるよう食材リストも出して。
+</code></pre>
+<p>これで、平日の夕方に献立のタブが開くこと自体がなくなります。<br />
+買い物も週1回のまとめ買いで済むので、<br />
+「仕事帰りにスーパーに寄って、店内でメニューを考える」あの時間が消えます。</p>
+<blockquote class="pay">
+<p><strong>💰 ペイ感メモ：</strong><br />
+献立を考える時間が1日15分なら、月に約7.5時間。時給2,000円換算で月1.5万円分の思考リソースです。<br />
+さらに「使い切り」設計で食材ロスが減ると、食費も月数千円単位で下がります。<br />
+この章のプロンプト2本だけで、本の代金は今月中に何倍にもなって返ってきます。</p>
+<p><strong>✅ 完了チェック：</strong><br />
+□ 今夜の献立をAIに出してもらった（これが全部のスタートです）<br />
+□ 週末に「1週間分プロンプト」を試す日を決めた</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-num">第2章</span><span class="ch-title">「名もなき家事」の棚卸し</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>自分が無意識に抱えている「名もなき家事」がリストになり、「仕組み化する・家族に渡す・やめる」の仕分けが1回できた状態。</p>
+</blockquote>
+<h3>見えていないタブは、閉じられない</h3>
+<p>洗剤の詰め替え、学校の集金の用意、トイレットペーパーの残数チェック、<br />
+子どもの爪切りのタイミング、保育園の着替えの補充…。</p>
+<p>こういう「名もなき家事」の何がつらいって、<br />
+<strong>やっても誰にも見えない</strong>ことと、<strong>自分でも全体量を把握していない</strong>ことです。</p>
+<p>把握していないものは、任せることも、やめることもできません。<br />
+だからまず、AIに棚卸しを手伝ってもらいます。</p>
+<p>▼ プロンプト例</p>
+<pre><code>共働き・子ども3人の家庭で発生する「名もなき家事」を50個リストアップして。
+そのうち、①仕組み化できるもの ②家族に分担できるもの ③やめてもいいもの に分類して。
+</code></pre>
+<p>出てきたリストを見ながら、「うちにもある」ものに印を付けてください。<br />
+それだけで「私、こんなに抱えてたんだ」が可視化されます。</p>
+<h3>仕分けの基準</h3>
+<ul>
+<li><strong>① 仕組み化する</strong>：定期購入・リマインダー・AIに任せる（例：消耗品はサブスク定期便に）</li>
+<li><strong>② 家族に渡す</strong>：リストになった瞬間、渡せるようになります。「言わなくても察して」は無理でも「この3つお願い」は通ります</li>
+<li><strong>③ やめる</strong>：「誰も困らないのに続けていた家事」が必ず数個見つかります。やめていいんです</li>
+</ul>
+<p>【実感の話】<br />
+私はこの棚卸しをやったとき、「家族に渡せるもの」の多さに驚きました。<br />
+渡せなかったのは家族が非協力的だったからではなく、<br />
+<strong>そもそもリストが私の頭の中にしかなかった</strong>からでした。<br />
+見える化した瞬間、上の子が「これ俺できるじゃん」と言った家事が2つありました。</p>
+<blockquote class="pay">
+<p><strong>💰 ペイ感メモ：</strong><br />
+家事の棚卸しをプロの家事コンサルタントに頼むと1回5,000円〜3万円が相場です。<br />
+AIなら無料で、今すぐ、しかも「わが家の条件」で出せます。<br />
+家族に1タスク渡せるだけで、月数時間が自分に戻ってくる計算です。</p>
+<p><strong>✅ 完了チェック：</strong><br />
+□ 名もなき家事の棚卸しプロンプトを実行した<br />
+□ ①仕組み化・②家族に渡す・③やめる を1つずつ選んだ</p>
+</blockquote>
+<hr />
+<hr /></div></details>
+
+</section>
+<div class="bridge"><p>台所まわりのタブが閉じ始めました。<br />
+次は、もっと心臓に悪いタブ。<strong>子ども関係の「うっかり」</strong>です。<br />
+ここは時間の問題ではなく、「忘れたら子どもが悲しむ」という心の重さの問題。<br />
+だからこそ、気合いではなく仕組みで守ります。</p></div>
+<section class="part" style="--accent:var(--p2)">
+<div class="part-head"><span class="part-title">第2部：子ども・学校編。「うっかり」を仕組みでなくす</span></div>
+<details class="ch"><summary><span class="ch-num">第3章</span><span class="ch-title">プリント・持ち物のタブを閉じる（NotebookLM）</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>NotebookLMに子どものプリントを1枚入れて、「明日の持ち物は？」と聞いて答えが返ってきた体験を完了した状態。</p>
+</blockquote>
+<h3>お弁当忘れガチ泣き事件</h3>
+<p>まず、この本を書いた原点の話をさせてください。</p>
+<p>一度、子どもの遠足のお弁当を入れ忘れて、ガチ泣きされたことがあります。</p>
+<p>プリントは、読んだんです。読んだのに、抜けた。<br />
+仕事の締切と、習い事の振替と、下の子の発熱が重なった週でした。</p>
+<p>そのとき悟りました。<br />
+<strong>「気をつける」は、対策じゃない。</strong><br />
+頭のタブが限界を超えたら、どんなに愛情があっても、抜けるときは抜けます。</p>
+<p>うっかりは、性格ではなく、仕組みで防ぐものです。</p>
+<h3>NotebookLMに、子どもの情報を全部入れる</h3>
+<p>私が使っているのは<strong>NotebookLM</strong>（Googleの無料AIツール）です。<br />
+プリントの写真・PDF・メールの案内文を、子どもごとに全部放り込みます。</p>
+<p>すると、こう聞くだけで一瞬で答えが返ってきます。</p>
+<ul>
+<li>「明日の授業参観、何時から？」</li>
+<li>「遠足の持ち物は？お弁当いる？」</li>
+<li>「体操服っていつまでに洗えばいい？」</li>
+</ul>
+<p>普通のAIチャットと違うのは、<strong>入れた資料だけを根拠に答える</strong>こと。<br />
+だから「うちの学校のプリント」に書いてあることを、正確に引いてくれます。</p>
+<h3>セットアップは3ステップ</h3>
+<ol>
+<li>NotebookLMを開いて、子どもの名前でノートブックを作る（例：「長男・学校」）</li>
+<li>プリントをスマホで撮って、そのままアップロード（PDFでも写真でもOK）</li>
+<li>「明日の持ち物は？」と聞いてみる</li>
+</ol>
+<p>これだけです。所要時間、初回で30分もかかりません。<br />
+以降は「プリントをもらったら撮って入れる」が習慣になれば完成です。</p>
+<p>家族と共有できるのも大きくて、<br />
+わが家では中学生の上の子は自分で見るようにしています。<br />
+「ママ、あれいつだっけ？」の質問が、私を経由しなくなりました。</p>
+<p>（詳しい構成は特典2のセットアップテンプレートで、わが家の実物をお見せします）</p>
+<blockquote class="pay">
+<p><strong>💰 ペイ感メモ：</strong><br />
+プリント確認・見返しに月2〜3時間かかっているなら、初回30分のセットアップで回収完了。<br />
+でも本当のペイ感はお金ではありません。「持ち物忘れで子どもが泣く」を1回防げたら、<br />
+それはいくらの価値でしょうか。私はあの事件以来、これを保険だと思って運用しています。</p>
+<p><strong>✅ 完了チェック：</strong><br />
+□ NotebookLMを開いてノートブックを1つ作った<br />
+□ 直近のプリントを1枚入れた<br />
+□ 「明日（直近の行事）の持ち物は？」と聞いてみた</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-num">第4章</span><span class="ch-title">勉強・受験サポートにAIを使う</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>子どもがつまずいている問題を1問、AIに「子どものレベルで」説明させてみた状態。「親が全部教える」を降りる準備ができた状態。</p>
+</blockquote>
+<h3>「なんでわからないの？」と言ってしまう前に</h3>
+<p>子どもの勉強を見ていて、イライラしてしまったことはありませんか？<br />
+私はあります。何度もあります。</p>
+<p>でも冷静に考えると、あれは子どものせいではなくて、<br />
+<strong>親の説明が子どもに合っていない</strong>ことがほとんどなんです。<br />
+親は「自分が分かった方法」でしか説明できないから。</p>
+<p>AIは違います。何回でも、別のたとえで、イライラせずに説明してくれます。</p>
+<p>▼ プロンプト例</p>
+<pre><code>小学4年生が「割り算のあまり」でつまずいています。
+絵や具体的な例えを使って、10歳でも分かるように説明してください。
+3つの別々のたとえ方で教えてください。
+</code></pre>
+<p>「3つの別々のたとえ方で」が肝です。<br />
+1つ目で分からなくても、2つ目か3つ目のどれかが刺さります。<br />
+人間の家庭教師でも、ここまで根気よくは付き合えません。</p>
+<h3>学習スケジュールと「声かけ」もAIに相談する</h3>
+<p>「何からやればいい？」「どれくらいやればいい？」に毎日答えるのも、<br />
+親の大きなタブの1つです。週間スケジュールごとAIに作らせましょう。</p>
+<p>▼ プロンプト例</p>
+<pre><code>中学受験（2年後）を目指す小学5年生の週間学習スケジュールを作って。
+平日2時間、休日4時間が確保できる。習い事は水曜と土曜午前。
+苦手科目：算数。得意：国語。今の優先順位と、親の声かけのコツも教えて。
+</code></pre>
+<p>「声かけのコツも教えて」を足しているのがポイントです。<br />
+スケジュールは作れても、続けさせる声かけで消耗するのが現実なので、<br />
+そこまで含めて相談相手にしてしまいます。</p>
+<h3>子どもにAIを使わせるときの3つのルール</h3>
+<ul>
+<li><strong>答えの丸写しはさせない</strong>：「なぜそうなるの？」を確認させる</li>
+<li><strong>小学生のうちは親が一緒に画面を見る</strong></li>
+<li><strong>AIに聞いた内容を、自分の言葉で説明させる</strong>（これで定着します）</li>
+</ul>
+<p>AIは「勉強を代わりにやるもの」ではなく、<br />
+<strong>「親の代わりに、何度でも付き合ってくれる伴走者」</strong>として使うのが正解です。<br />
+親は「教える人」を降りて、「一緒に画面を見る人」になる。<br />
+私の受験サポートで一番大きかった変化は、これでした。</p>
+<blockquote class="pay">
+<p><strong>💰 ペイ感メモ：</strong><br />
+家庭教師は週2回・2時間で月5〜8万円が相場。AIは月0円〜3,000円前後で毎日使えます。<br />
+全部を置き換えなくても、「つまずきの解消」だけAIが担えば年間数十万円規模の違いです。<br />
+そして「親子ゲンカが減る」効果は、金額換算できないけれど一番大きいかもしれません。</p>
+<p><strong>✅ 完了チェック：</strong><br />
+□ 子どもがつまずいている問題を1問、AIに説明させてみた<br />
+□ 「AIは答えを写すツールじゃない」を子どもと共有した</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-num">第5章</span><span class="ch-title">習い事・家族スケジュールの司令塔をつくる</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>家族の予定・タスクの「聞かれ役」を自分の頭からAIの仕組みに移す設計図ができた状態。</p>
+</blockquote>
+<h3>「ママ、あれいつだっけ？」を卒業する</h3>
+<p>家庭の中で、あなたはたぶん「歩く検索窓」になっています。</p>
+<ul>
+<li>「次のサッカーいつ？」</li>
+<li>「歯医者の予約って何時？」</li>
+<li>「おばあちゃん来るのいつだっけ？」</li>
+</ul>
+<p>答えられてしまうから、聞かれ続ける。<br />
+そして答えるたびに、頭のタブがまた1つ開く。</p>
+<p>やることは2つです。</p>
+<p><strong>① 予定は1か所に集める</strong><br />
+家族の予定はGoogleカレンダー（共有）に一本化。<br />
+紙のお知らせは第3章のNotebookLMへ。「情報の置き場所」を2つに絞ります。</p>
+<p><strong>② 入力をAIに手伝わせる</strong><br />
+プリントの日程をカレンダーに手で写すのが面倒なら、<br />
+写真をAIに読ませて「日時・場所・持ち物を抜き出して」と頼む。<br />
+抜き出したものをカレンダーに入れるだけにします。</p>
+<p>▼ プロンプト例</p>
+<pre><code>この画像は子どもの習い事のお知らせです。
+日時・場所・持ち物・締切があれば抜き出して、
+カレンダー登録用に「タイトル／日時／メモ」の形で整理して。
+</code></pre>
+<h3>家族を「自分で見る人」にする</h3>
+<p>仕組みができたら、最後の仕上げは<strong>家族への案内</strong>です。</p>
+<p>「次のサッカーいつ？」と聞かれたら、答える代わりに<br />
+「カレンダーに入ってるよ」と返す。最初の2週間だけ、意識して続けてください。</p>
+<p>冷たい対応ではありません。<br />
+家族が「自分で見れば分かる」状態は、家族自身の自立でもあります。<br />
+わが家では中学生の上の子が自分のテスト日程を自分で入れるようになりました。</p>
+<blockquote class="check">
+<p><strong>✅ 完了チェック：</strong><br />
+□ 家族の予定の「置き場所」を2つ（カレンダー＋NotebookLM）に決めた<br />
+□ お知らせ1枚を、AIに読ませてカレンダー登録まで通しでやってみた</p>
+</blockquote>
+<hr />
+<hr /></div></details>
+
+</section>
+<div class="bridge"><p>ごはんのタブ、プリントのタブ、予定のタブ。<br />
+ここまでで、家庭まわりの大きなタブはだいぶ閉じてきました。<br />
+最後の第3部は、<strong>あなた自身の話</strong>です。<br />
+実は、仕組みより難しいのがここ。「休むことへの罪悪感」というタブです。</p></div>
+<section class="part" style="--accent:var(--p3)">
+<div class="part-head"><span class="part-title">第3部：自分の時間編。浮いた時間を、自分に返す</span></div>
+<details class="ch"><summary><span class="ch-num">第6章</span><span class="ch-title">完璧を手放す「仕組み化」マインド</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>「今日から手放す1つ」を決めた状態。浮いた時間を別のタスクで埋めない、と自分に約束した状態。</p>
+</blockquote>
+<h3>時短の最大の敵は、自分の「ちゃんとしなきゃ」</h3>
+<p>ここまで読んで、もしかしたらこう思っていませんか？</p>
+<p>「AIの献立って、手抜きじゃないかな」<br />
+「プリントくらい、親がちゃんと見るべきじゃないかな」</p>
+<p>その「ちゃんと」が、あなたを一番消耗させてきた正体です。</p>
+<p>思い出してください。<br />
+私は「ちゃんと」を積み上げた結果、病んで仕事を辞めました。<br />
+ちゃんとしたご飯を作っても、倒れたら元も子もありません。</p>
+<p><strong>手放すのは愛情ではなく、考えごとです。</strong><br />
+AIが献立を出しても、作って「おいしいね」と食べるのは家族です。<br />
+NotebookLMがプリントを覚えても、遠足の朝に「いってらっしゃい」と送り出すのはあなたです。<br />
+仕組みに任せた分だけ、そっちに使える心の余裕が増える。それだけの話です。</p>
+<h3>浮いた時間を、タスクで埋めない</h3>
+<p>もう1つ、大事な約束をしてください。</p>
+<p><strong>AIで浮いた時間を、別の家事や仕事で埋めない。</strong></p>
+<p>時短が続かない人の典型パターンは、<br />
+浮いた30分に新しいタスクを詰め込んで、結局同じ忙しさに戻ることです。<br />
+それでは「何のために時短したのか」が消えてしまいます。</p>
+<p>浮いた時間の使い道を、先に決めておきましょう。それが次の章です。</p>
+<blockquote class="check">
+<p><strong>✅ 完了チェック：</strong><br />
+□ 「今日から手放す1つ」（家事・確認ごと・ちゃんと）を決めた<br />
+□ 「浮いた時間をタスクで埋めない」と自分に約束した</p>
+</blockquote>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-num">第7章</span><span class="ch-title">浮いた時間を「自分のため」に使う</span></summary>
+<div class="ch-content"><blockquote class="goal">
+<p><strong>📍 この章で手に入るもの：</strong>浮いた時間の「使い道リスト」が3つできた状態。罪悪感なしで自分の時間を取る根拠が手に入った状態。</p>
+</blockquote>
+<h3>「自分のため」の使い道を、具体的に3つ決める</h3>
+<p>「時間ができたら自分のことをしよう」は、絶対に実現しません。<br />
+使い道が決まっていない時間は、家事と罪悪感に吸収されるからです。</p>
+<p>だから先に、具体的に3つ決めます。レベル別にどうぞ。</p>
+<ul>
+<li><strong>回復系</strong>：15分早く寝る／湯船に浸かる／何もしないでお茶を飲む</li>
+<li><strong>楽しみ系</strong>：読みたかった本／ドラマ1話／友達に連絡する</li>
+<li><strong>未来系</strong>：学びたかったことを15分だけ／自分の仕事の棚卸し／このBrainの続きを読む</li>
+</ul>
+<p>おすすめは「回復系」から始めることです。<br />
+私の場合、最初に取り戻したのは睡眠でした。<br />
+「もっと眠りたい」を叶えるのは、ぜいたくではなく整備です。<br />
+寝られるようになってから、楽しみ系も未来系も回り始めました。</p>
+<h3>この生活の先に見えてくるもの</h3>
+<p>最後に、少しだけ先の話をします。</p>
+<p>この本で身につけた「AIに考えごとを任せる」スキルは、<br />
+実はそのまま<strong>仕事のスキル</strong>でもあります。</p>
+<p>献立をAIに出させる型は、仕事の企画出しの型と同じ。<br />
+NotebookLMの情報整理は、そのまま業務の資料管理に使えます。</p>
+<p>「家庭のためにAIを覚えたら、いつの間にか仕事で一番AIに強い人になっていた」。<br />
+これは、私の講座の受講生で実際に何人も起きていることです。</p>
+<p>在宅で働きたい、仕事の幅を広げたいと思ったとき、<br />
+あなたにはもう「生活で毎日AIを使ってきた」という実績があります。<br />
+それは履歴書には書けないけれど、確実な力です。</p>
+<blockquote class="check">
+<p><strong>✅ 完了チェック：</strong><br />
+□ 浮いた時間の使い道を3つ（回復系・楽しみ系・未来系）書いた<br />
+□ 今週、そのうち1つを実行する日を決めた</p>
+</blockquote>
+<hr /></div></details>
+
+</section>
+<section class="part" style="--accent:var(--end)">
+<div class="part-head"><span class="part-title">終章・特典・付録</span></div>
+<div class="group-intro"><p>ここまで読んでくれたあなたへ。</p>
+<p>まず、完走おめでとうございます。</p>
+<p>最後に、一番伝えたかったことを書きます。</p>
+<p>この本のタイトルは「時短」ですが、<br />
+本当に手に入れてほしかったのは、時間そのものではありません。</p>
+<p><strong>余白です。</strong></p>
+<p>頭のタブが閉じて、ふっと静かになった夜。<br />
+子どもの話を、途中で「あ、洗濯…」と思わずに最後まで聞けた瞬間。<br />
+「今日ちょっと余裕あったな」と思いながら眠りにつく日。</p>
+<p>読む前のあなたは「もっと効率よくやらなきゃ」と思っていたかもしれません。<br />
+読み終えた今は、こう考えてみてください。</p>
+<p><strong>効率化は、もっとやるためじゃなく、もうやらないためにある。</strong></p>
+<p>全部やらなくて大丈夫です。この3つから1つだけ選んでください。</p>
+<ul>
+<li>今夜の献立を、AIに出してもらう（第1章）</li>
+<li>NotebookLMに、プリントを1枚入れる（第3章）</li>
+<li>15分早く寝る（第7章）</li>
+</ul>
+<p>1つ動けたら、あなたの余白はもう生まれ始めています。</p>
+<p>応援しています。</p>
+<p>あやねえ</p>
+<hr /></div>
+<details class="ch"><summary><span class="ch-title">特典の受け取り方</span></summary>
+<div class="ch-content"><ol>
+<li><strong>生活シーン別プロンプト集30</strong>（本文の全プロンプト＋応用版）</li>
+<li><strong>NotebookLM「家族の情報まとめ」セットアップテンプレート</strong>（わが家の実物構成）</li>
+<li><strong>1週間献立×買い物リスト ワークシート</strong></li>
+</ol>
+<p>LINE（@○○）に登録 → 合言葉「○○○」で全特典をお送りします。<br />
+LINEでは、新しく効いたプロンプトのアップデート版も配布していきます。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-num">最後に</span><span class="ch-title">この先が気になる方へ</span></summary>
+<div class="ch-content"><p>「生活のAI」に慣れてくると、<br />
+「これ、仕事にも使えるんじゃない？」という感覚が必ず出てきます。</p>
+<p>その感覚は正しいです。</p>
+<p>私は「AIで生活を仕組み化する側」から、<br />
+オンライン秘書・ウラカタとして「AIで仕事を仕組み化する側」になりました。<br />
+その道のりは、別のBrain「クライアントワークの教科書」や、<br />
+主宰している秘書力マスター講座で扱っています。</p>
+<p>余白ができたら、次は「その余白で何をするか」。<br />
+そのときは、また会いに来てください。</p>
+<hr /></div></details>
+
+<details class="ch"><summary><span class="ch-num">付録</span><span class="ch-title">巻頭に戻れる最終チェックリスト</span></summary>
+<div class="ch-content"><blockquote>
+<p>□ 今夜の献立をAIに出してもらった（第1章）<br />
+□ 1週間分の献立＋買い物リストを試す日を決めた（第1章）<br />
+□ 名もなき家事を棚卸しして、仕組み化・渡す・やめるを1つずつ選んだ（第2章）<br />
+□ NotebookLMにプリントを1枚入れて、質問してみた（第3章）<br />
+□ 子どものつまずきを1問、AIに説明させた（第4章）<br />
+□ 家族の予定の置き場所を2つに絞った（第5章）<br />
+□ 「今日から手放す1つ」を決めた（第6章）<br />
+□ 浮いた時間の使い道を3つ書いた（第7章）</p>
+</blockquote>
+<hr /></div></details>
+
+</section>
+  <footer>素材：旧No.03下書き＋本編ドラフト＋お弁当事件（セミナー実話）｜しょーてぃ式＋迫さん9技術準拠</footer>
+</div>
+</body>
+</html>
